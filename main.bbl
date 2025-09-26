@@ -1,0 +1,695 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{zengWireless2016}{article}{}
+    \name{author}{3}{}{%
+      {{hash=ZY}{%
+         family={Zeng},
+         familyi={Z\bibinitperiod},
+         given={Yong},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=ZR}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Rui},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=LTJ}{%
+         family={Lim},
+         familyi={L\bibinitperiod},
+         given={Teng\bibnamedelima Joon},
+         giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZYZRLTJ1}
+    \strng{fullhash}{ZYZRLTJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{number}{5}
+    \field{pages}{36\bibrangedash 42}
+    \field{shorttitle}{Wireless Communications with Unmanned Aerial Vehicles}
+    \field{title}{Wireless Communications with Unmanned Aerial Vehicles:
+  Opportunities and Challenges}
+    \field{volume}{54}
+    \field{journaltitle}{IEEE Commun. Mag.}
+    \field{month}{05}
+    \field{year}{2016}
+  \endentry
+
+  \entry{muUAV2023}{article}{}
+    \name{author}{5}{}{%
+      {{hash=MJ}{%
+         family={Mu},
+         familyi={M\bibinitperiod},
+         given={Junsheng},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=ZR}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Ronghui},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=CY}{%
+         family={Cui},
+         familyi={C\bibinitperiod},
+         given={Yuanhao},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GN}{%
+         family={Gao},
+         familyi={G\bibinitperiod},
+         given={Ning},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=JX}{%
+         family={Jing},
+         familyi={J\bibinitperiod},
+         given={Xiaojun},
+         giveni={X\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MJZRCY+1}
+    \strng{fullhash}{MJZRCYGNJX1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{number}{5}
+    \field{pages}{62\bibrangedash 67}
+    \field{shorttitle}{{{UAV Meets Integrated Sensing}} and {{Communication}}}
+    \field{title}{{{UAV Meets Integrated Sensing}} and {{Communication}}:
+  {{Challenges}} and {{Future Directions}}}
+    \field{volume}{61}
+    \field{journaltitle}{IEEE Commun. Mag.}
+    \field{month}{05}
+    \field{year}{2023}
+  \endentry
+
+  \entry{mengUAVEnabled2024}{article}{}
+    \name{author}{7}{}{%
+      {{hash=MK}{%
+         family={Meng},
+         familyi={M\bibinitperiod},
+         given={Kaitao},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=WQ}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Qingqing},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=XJ}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Jie},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CW}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Wen},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=FZ}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Zhiyong},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Schober},
+         familyi={S\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SAL}{%
+         family={Swindlehurst},
+         familyi={S\bibinitperiod},
+         given={A.\bibnamedelima Lee},
+         giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MKWQXJ+1}
+    \strng{fullhash}{MKWQXJCWFZSRSAL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{number}{2}
+    \field{pages}{97\bibrangedash 104}
+    \field{shorttitle}{{{UAV-Enabled Integrated Sensing}} and
+  {{Communication}}}
+    \field{title}{{{UAV-Enabled Integrated Sensing}} and {{Communication}}:
+  {{Opportunities}} and {{Challenges}}}
+    \field{volume}{31}
+    \field{journaltitle}{IEEE Wireless Commun.}
+    \field{month}{04}
+    \field{year}{2024}
+  \endentry
+
+  \entry{huCollaborative2025}{article}{}
+    \name{author}{7}{}{%
+      {{hash=HY}{%
+         family={Hu},
+         familyi={H\bibinitperiod},
+         given={Yunbo},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=ZX}{%
+         family={Zhuo},
+         familyi={Z\bibinitperiod},
+         given={Xiaoxiao},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=MZ}{%
+         family={Meng},
+         familyi={M\bibinitperiod},
+         given={Zhenyu},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=LW}{%
+         family={Lu},
+         familyi={L\bibinitperiod},
+         given={Wenkai},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=TL}{%
+         family={Tang},
+         familyi={T\bibinitperiod},
+         given={Liang},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=QF}{%
+         family={Qu},
+         familyi={Q\bibinitperiod},
+         given={Fengzhong},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=BZ}{%
+         family={Bu},
+         familyi={B\bibinitperiod},
+         given={Zhiyong},
+         giveni={Z\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HYZXMZ+1}
+    \strng{fullhash}{HYZXMZLWTLQFBZ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{1\bibrangedash 1}
+    \field{title}{Collaborative {{Positioning Optimization}} for {{Multiple
+  Moving Users}} in {{UAV-Enabled ISAC}}}
+    \field{journaltitle}{IEEE Trans. Cognit. Commun. Networking}
+    \field{year}{2025}
+  \endentry
+
+  \entry{chenJoint2023b}{article}{}
+    \name{author}{4}{}{%
+      {{hash=CL}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Li},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=QX}{%
+         family={Qin},
+         familyi={Q\bibinitperiod},
+         given={Xiaowei},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=CY}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Yunfei},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=ZN}{%
+         family={Zhao},
+         familyi={Z\bibinitperiod},
+         given={Nan},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CLQXCY+1}
+    \strng{fullhash}{CLQXCYZN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{3}
+    \field{pages}{1323\bibrangedash 1335}
+    \field{title}{Joint {{Waveform}} and {{Clustering Design}} for
+  {{Coordinated Multi-Point DFRC Systems}}}
+    \field{volume}{71}
+    \field{journaltitle}{IEEE Trans. Commun.}
+    \field{month}{03}
+    \field{year}{2023}
+  \endentry
+
+  \entry{maoUAVAssisted2025}{article}{}
+    \name{author}{4}{}{%
+      {{hash=MW}{%
+         family={Mao},
+         familyi={M\bibinitperiod},
+         given={Weihao},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Lu},
+         familyi={L\bibinitperiod},
+         given={Yang},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=PG}{%
+         family={Pan},
+         familyi={P\bibinitperiod},
+         given={Gaofeng},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=AB}{%
+         family={Ai},
+         familyi={A\bibinitperiod},
+         given={Bo},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MWLYPG+1}
+    \strng{fullhash}{MWLYPGAB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{number}{1}
+    \field{pages}{186\bibrangedash 200}
+    \field{shorttitle}{{{UAV-Assisted Communications}} in {{SAGIN-ISAC}}}
+    \field{title}{{{UAV-Assisted Communications}} in {{SAGIN-ISAC}}: {{Mobile
+  User Tracking}} and {{Robust Beamforming}}}
+    \field{volume}{43}
+    \field{journaltitle}{IEEE J. Sel. Areas Commun.}
+    \field{month}{01}
+    \field{year}{2025}
+  \endentry
+
+  \entry{xuRateSplitting2021a}{article}{}
+    \name{author}{5}{}{%
+      {{hash=XC}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Chengcheng},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=CB}{%
+         family={Clerckx},
+         familyi={C\bibinitperiod},
+         given={Bruno},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=CS}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Shiwa},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=MY}{%
+         family={Mao},
+         familyi={M\bibinitperiod},
+         given={Yijie},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=ZJ}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Jianyun},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{XCCBCS+1}
+    \strng{fullhash}{XCCBCSMYZJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{6}
+    \field{pages}{1332\bibrangedash 1347}
+    \field{title}{Rate-{{Splitting Multiple Access}} for {{Multi-Antenna Joint
+  Radar}} and {{Communications}}}
+    \field{volume}{15}
+    \field{journaltitle}{IEEE J. Sel. Top. Signal Process.}
+    \field{month}{11}
+    \field{year}{2021}
+  \endentry
+
+  \entry{mengUAVEnabled2023}{article}{}
+    \name{author}{7}{}{%
+      {{hash=MK}{%
+         family={Meng},
+         familyi={M\bibinitperiod},
+         given={Kaitao},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=WQ}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Qingqing},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=XJ}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Jie},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CW}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Wen},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=FZ}{%
+         family={Feng},
+         familyi={F\bibinitperiod},
+         given={Zhiyong},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Schober},
+         familyi={S\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SAL}{%
+         family={Swindlehurst},
+         familyi={S\bibinitperiod},
+         given={A.\bibnamedelima Lee},
+         giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MKWQXJ+1}
+    \strng{fullhash}{MKWQXJCWFZSRSAL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \verb{eprint}
+    \verb 2206.03408
+    \endverb
+    \field{pages}{1\bibrangedash 9}
+    \field{shorttitle}{{{UAV-Enabled Integrated Sensing}} and
+  {{Communication}}}
+    \field{title}{{{UAV-Enabled Integrated Sensing}} and {{Communication}}:
+  {{Opportunities}} and {{Challenges}}}
+    \field{journaltitle}{IEEE Wireless Commun.}
+    \field{eprinttype}{arXiv}
+    \field{year}{2023}
+  \endentry
+
+  \entry{jingISAC2024}{article}{}
+    \name{author}{4}{}{%
+      {{hash=JX}{%
+         family={Jing},
+         familyi={J\bibinitperiod},
+         given={Xiaoye},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=LF}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Fan},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={Masouros},
+         familyi={M\bibinitperiod},
+         given={Christos},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=ZY}{%
+         family={Zeng},
+         familyi={Z\bibinitperiod},
+         given={Yong},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JXLFMC+1}
+    \strng{fullhash}{JXLFMCZY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{pages}{1\bibrangedash 1}
+    \field{shorttitle}{{{ISAC}} from the {{Sky}}}
+    \field{title}{{{ISAC}} from the {{Sky}}: {{UAV Trajectory Design}} for
+  {{Joint Communication}} and {{Target Localization}}}
+    \field{journaltitle}{IEEE Trans. Wireless Commun.}
+    \field{year}{2024}
+  \endentry
+
+  \entry{lyuDualRobust2024}{article}{}
+    \name{author}{7}{}{%
+      {{hash=LW}{%
+         family={Lyu},
+         familyi={L\bibinitperiod},
+         given={Wanting},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=YS}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Songjie},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=XY}{%
+         family={Xiu},
+         familyi={X\bibinitperiod},
+         given={Yue},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=CX}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Xinyi},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=ZZ}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Zhongpei},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=AC}{%
+         family={Assi},
+         familyi={A\bibinitperiod},
+         given={Chadi},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=YC}{%
+         family={Yuen},
+         familyi={Y\bibinitperiod},
+         given={Chau},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LWYSXY+1}
+    \strng{fullhash}{LWYSXYCXZZACYC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{number}{11}
+    \field{pages}{3124\bibrangedash 3128}
+    \field{shorttitle}{Dual-{{Robust Integrated Sensing}} and
+  {{Communication}}}
+    \field{title}{Dual-{{Robust Integrated Sensing}} and {{Communication}}:
+  {{Beamforming Under CSI Imperfection}} and {{Location Uncertainty}}}
+    \field{volume}{13}
+    \field{journaltitle}{IEEE Wireless Communications Letters}
+    \field{month}{11}
+    \field{year}{2024}
+  \endentry
+
+  \entry{linMultiAntenna2024}{article}{}
+    \name{author}{4}{}{%
+      {{hash=LS}{%
+         family={Lin},
+         familyi={L\bibinitperiod},
+         given={Shengbin},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=XY}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Yitao},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Haichao},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=DG}{%
+         family={Ding},
+         familyi={D\bibinitperiod},
+         given={Guoru},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LSXYWH+1}
+    \strng{fullhash}{LSXYWHDG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{10}
+    \field{pages}{13841\bibrangedash 13855}
+    \field{title}{Multi-{{Antenna Covert Communication Assisted}} by {{UAV-RIS
+  With Imperfect CSI}}}
+    \field{volume}{23}
+    \field{journaltitle}{IEEE Transactions on Wireless Communications}
+    \field{month}{10}
+    \field{year}{2024}
+  \endentry
+
+  \entry{xuResource2025}{article}{}
+    \name{author}{7}{}{%
+      {{hash=XY}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Yongjun},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=WM}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Mingyang},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=ZH}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Haibo},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=XQ}{%
+         family={Xue},
+         familyi={X\bibinitperiod},
+         given={Qing},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Kang},
+         familyi={K\bibinitperiod},
+         given={Jiawen},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CQ}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Qianbin},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=YC}{%
+         family={Yuen},
+         familyi={Y\bibinitperiod},
+         given={Chau},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{XYWMZH+1}
+    \strng{fullhash}{XYWMZHXQKJCQYC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{3}
+    \field{pages}{5170\bibrangedash 5174}
+    \field{title}{Resource {{Allocation}} for {{RSMA-Based Symbiotic Radio
+  Systems Under Imperfect SIC}} and {{CSI}}}
+    \field{volume}{74}
+    \field{journaltitle}{IEEE Trans. Veh. Technol.}
+    \field{month}{03}
+    \field{year}{2025}
+  \endentry
+
+  \entry{leeMaxMin2023}{article}{}
+    \name{author}{2}{}{%
+      {{hash=LB}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={Byungju},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=SW}{%
+         family={Shin},
+         familyi={S\bibinitperiod},
+         given={Wonjae},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LBSW1}
+    \strng{fullhash}{LBSW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{number}{1}
+    \field{pages}{1355\bibrangedash 1359}
+    \field{shorttitle}{Max-{{Min Fairness Precoder Design}} for
+  {{Rate-Splitting Multiple Access}}}
+    \field{title}{Max-{{Min Fairness Precoder Design}} for {{Rate-Splitting
+  Multiple Access}}: {{Impact}} of {{Imperfect Channel Knowledge}}}
+    \field{volume}{72}
+    \field{journaltitle}{IEEE Trans. Veh. Technol.}
+    \field{month}{01}
+    \field{year}{2023}
+  \endentry
+
+  \entry{shenFractional2018a}{article}{}
+    \name{author}{2}{}{%
+      {{hash=SK}{%
+         family={Shen},
+         familyi={S\bibinitperiod},
+         given={Kaiming},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=YW}{%
+         family={Yu},
+         familyi={Y\bibinitperiod},
+         given={Wei},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SKYW1}
+    \strng{fullhash}{SKYW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{number}{10}
+    \field{pages}{2616\bibrangedash 2630}
+    \field{shorttitle}{Fractional {{Programming}} for {{Communication
+  Systems}}---{{Part I}}}
+    \field{title}{Fractional {{Programming}} for {{Communication
+  Systems}}---{{Part I}}: {{Power Control}} and {{Beamforming}}}
+    \field{volume}{66}
+    \field{journaltitle}{IEEE Trans. Signal Process.}
+    \field{month}{05}
+    \field{year}{2018}
+  \endentry
+
+  \entry{cvx}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=CRI}{%
+         family={CVX\bibnamedelima Research},
+         familyi={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+         given={Inc.},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CRI1}
+    \strng{fullhash}{CRI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{http://cvxr.com/cvx}}
+    \field{title}{{CVX}: Matlab Software for Disciplined Convex Programming,
+  version 2.0}
+    \field{month}{08}
+    \field{year}{2012}
+  \endentry
+\enddatalist
+\endinput
