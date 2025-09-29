@@ -691,5 +691,40 @@
     \field{month}{08}
     \field{year}{2012}
   \endentry
+
+  \entry{lyuJoint2023}{article}{}
+    \name{author}{3}{}{%
+      {{hash=LZ}{%
+         family={Lyu},
+         familyi={L\bibinitperiod},
+         given={Zhonghao},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=ZG}{%
+         family={Zhu},
+         familyi={Z\bibinitperiod},
+         given={Guangxu},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=XJ}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Jie},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LZZGXJ1}
+    \strng{fullhash}{LZZGXJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{4}
+    \field{pages}{2424\bibrangedash 2440}
+    \field{title}{Joint {{Maneuver}} and {{Beamforming Design}} for
+  {{UAV-Enabled Integrated Sensing}} and {{Communication}}}
+    \field{volume}{22}
+    \field{journaltitle}{IEEE Trans. Wireless Commun.}
+    \field{month}{04}
+    \field{year}{2023}
+  \endentry
 \enddatalist
 \endinput

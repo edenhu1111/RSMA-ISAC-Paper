@@ -246,7 +246,7 @@ Then, quadratic transformation \cite{shenFractional2018a} can be adopted to tack
     &\tilde{R}^{c}_{t} =  \min_{k}\log_2(1+\tilde{\gamma}_{t,k}^{c}),
 \end{align}
 \end{subequations}
-where \(\mathbf{A}\) is defined as \(\mathbf{A} = \left(\hat{\boldsymbol{g}}_{t}\hat{\boldsymbol{g}}^{H}_{t}-\alpha_t\mathbf{I}\right)^{\frac{1}{2}}\). Thus, the problem can be further reformulated as an iterative optimization problem, which alternatively update the original optimization variables and auxilary variables as follows
+where \(\mathbf{A}_t\) is defined as \(\mathbf{A}_t = \left(\hat{\boldsymbol{g}}_{t}\hat{\boldsymbol{g}}^{H}_{t}-\alpha_t\mathbf{I}\right)^{\frac{1}{2}}\). Thus, the problem can be further reformulated as an iterative optimization problem, which alternatively update the original optimization variables and auxilary variables as follows
 \begin{subequations}
 \begin{align}
     (\text{P1.3})\quad&\mathop{\max}_{{\substack{\boldsymbol{p}^{r}_{t},\boldsymbol{p}^{c}_{t},\\
@@ -259,7 +259,7 @@ where \(\mathbf{A}\) is defined as \(\mathbf{A} = \left(\hat{\boldsymbol{g}}_{t}
 Here, the problem P1.3 is convex, which can be solved by stadard convex optimization tool, i.e., CVX \cite{cvx}. Then, we can update the auxilary variables via \eqref{eq:yr}-\eqref{eq:yp}. 
 \begin{subequations}
 \begin{align}
-    &\boldsymbol{y}_{r,t}^{\star} = \left(\hat{\Xi}^{r}_{t} + \left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{c}_{t}\right|^2 + \sum_{i=1}^{K}\left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2\right)^{-1}\mathbf{A}\boldsymbol{p}^{r}_{t},\label{eq:yr}\\
+    &\boldsymbol{y}_{r,t}^{\star} = \left(\hat{\Xi}^{r}_{t} + \left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{c}_{t}\right|^2 + \sum_{i=1}^{K}\left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2\right)^{-1}\mathbf{A}_t\boldsymbol{p}^{r}_{t},\label{eq:yr}\\
     &y_{c,t,k}^{\star} = \left( \hat{\Xi}^{c}_{t,k} +  \sum_{i=1}^{K}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2 \right)^{-1}\hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{c}_{t},\label{eq:yc}\\
     &y_{p,t,k}^{\star} = \left( \hat{\Xi}^{p}_{t,k} +  \sum_{i\neq j}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2  \right)^{-1}\hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,k}.\label{eq:yp}
 \end{align}
@@ -284,8 +284,7 @@ We define \((\cdot)^{[q]}\) as the value of the variable in the \(q\)-th iterati
     &\hat{R}^{c}_{t,k} =\bar{R}^{c,(q-1)}_{t,k}+\sum_t \frac{\partial \bar{R}^{c}_{t,k}}{\partial \boldsymbol{x}^{U}_{t}}\left(\boldsymbol{x}^{U}_{t}-\boldsymbol{x}^{U,(q-1)}_{t}\right).
 \end{align}
 \end{subequations}
-
-Therefore, the problem in the \(q\)-th iteration can be reformulated as
+Here, the derivation of partial derivative can be referred to \cite{lyuJoint2023}, which is omitted due to the page limit. Therefore, the problem in the \(q\)-th iteration can be reformulated as
 \begin{subequations}
 \begin{align}
     (\text{P2.1})\quad&\min_{\left\{\boldsymbol{x}^{U}_{t}\right\},\left\{C_{t,k}\right\}} \hat{\Phi}\label{eq:objP2}\\
@@ -307,14 +306,14 @@ Given the initial value of precoders, we can calculate the initial value of auxi
   \begin{minipage}{0.3\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figure/1_figConv.eps}
-    \caption{Convergence behavior of the proposed optimization method}
+    \caption{Convergence behavior of the proposed optimization method.}
     \label{fig:Conv}
   \end{minipage}
   \hfill
   \begin{minipage}{0.3\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figure/2_figRate_CRB.eps}
-    \caption{Comparison of CRB under different rate constraint}
+    \caption{Comparison of CRB under different rate constraint.}
     \label{fig:image2}
   \end{minipage}
 %   \hfill

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2024.9.20)  26 SEP 2025 14:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2024.9.20)  29 SEP 2025 14:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -837,32 +837,32 @@ Overfull \hbox (1.51233pt too wide) detected at line 204
 
 [3] [4]
 Package epstopdf Info: Source file: <figure/1_figConv.eps>
-(epstopdf)                    date: 2025-09-26 14:42:22
-(epstopdf)                    size: 65161 bytes
+(epstopdf)                    date: 2025-09-29 14:09:40
+(epstopdf)                    size: 65155 bytes
 (epstopdf)             Output file: <figure/1_figConv-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-09-26 14:43:38
-(epstopdf)                    size: 31283 bytes
+(epstopdf)                    date: 2025-09-29 14:12:47
+(epstopdf)                    size: 31332 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1_figConv-eps-converted-to.pdf figure/1_figConv.eps>
-(epstopdf)             \includegraphics on input line 309.
+(epstopdf)             \includegraphics on input line 308.
 Package epstopdf Info: Output file is already uptodate.
-<figure/1_figConv-eps-converted-to.pdf, id=64, 421.575pt x 316.18124pt>
+<figure/1_figConv-eps-converted-to.pdf, id=52, 421.575pt x 316.18124pt>
 File: figure/1_figConv-eps-converted-to.pdf Graphic file (type pdf)
 <use figure/1_figConv-eps-converted-to.pdf>
-Package pdftex.def Info: figure/1_figConv-eps-converted-to.pdf  used on input line 309.
+Package pdftex.def Info: figure/1_figConv-eps-converted-to.pdf  used on input line 308.
 (pdftex.def)             Requested size: 154.80157pt x 116.10233pt.
 Package epstopdf Info: Source file: <figure/2_figRate_CRB.eps>
-(epstopdf)                    date: 2025-09-26 14:42:41
-(epstopdf)                    size: 30647 bytes
+(epstopdf)                    date: 2025-09-29 14:11:17
+(epstopdf)                    size: 32527 bytes
 (epstopdf)             Output file: <figure/2_figRate_CRB-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-09-26 14:49:26
-(epstopdf)                    size: 12369 bytes
+(epstopdf)                    date: 2025-09-29 14:12:49
+(epstopdf)                    size: 12789 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/2_figRate_CRB-eps-converted-to.pdf figure/2_figRate_CRB.eps>
-(epstopdf)             \includegraphics on input line 316.
+(epstopdf)             \includegraphics on input line 315.
 Package epstopdf Info: Output file is already uptodate.
-<figure/2_figRate_CRB-eps-converted-to.pdf, id=65, 421.575pt x 316.18124pt>
+<figure/2_figRate_CRB-eps-converted-to.pdf, id=53, 421.575pt x 316.18124pt>
 File: figure/2_figRate_CRB-eps-converted-to.pdf Graphic file (type pdf)
 <use figure/2_figRate_CRB-eps-converted-to.pdf>
-Package pdftex.def Info: figure/2_figRate_CRB-eps-converted-to.pdf  used on input line 316.
+Package pdftex.def Info: figure/2_figRate_CRB-eps-converted-to.pdf  used on input line 315.
 (pdftex.def)             Requested size: 154.80157pt x 116.10233pt.
  [5 <./figure/1_figConv-eps-converted-to.pdf> <./figure/2_figRate_CRB-eps-converted-to.pdf>] (./main.aux)
 
@@ -881,18 +881,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23656 strings out of 478268
- 480607 string characters out of 5850345
- 1074687 words of memory out of 5000000
- 41483 multiletter control sequences out of 15000+600000
+ 23660 strings out of 478268
+ 480779 string characters out of 5850345
+ 1074743 words of memory out of 5000000
+ 41487 multiletter control sequences out of 15000+600000
  508216 words of font info for 107 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  83i,16n,80p,1852b,1258s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {d:/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2022/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><d:/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 353140 bytes).
+Output written on main.pdf (5 pages, 325092 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
+ 144 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
