@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2024.9.20)  29 SEP 2025 14:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2024.9.20)  27 OCT 2025 14:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -807,27 +807,32 @@ Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
 Package biblatex Info: Reference section=0 on input line 35.
 Package biblatex Info: Reference segment=0 on input line 35.
-
-
-pdfTeX warning: pdflatex.exe (file ./figure/systemmodel.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figure/systemmodel.pdf, id=4, 597.6729pt x 463.37117pt>
-File: figure/systemmodel.pdf Graphic file (type pdf)
-<use figure/systemmodel.pdf>
-Package pdftex.def Info: figure/systemmodel.pdf  used on input line 68.
-(pdftex.def)             Requested size: 249.48138pt x 193.41965pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
-(d:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
+ (d:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
  (d:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
+
+pdfTeX warning: pdflatex.exe (file ./figure/systemmodel.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<figure/systemmodel.pdf, id=13, 597.6729pt x 463.37117pt>
+File: figure/systemmodel.pdf Graphic file (type pdf)
+<use figure/systemmodel.pdf>
+Package pdftex.def Info: figure/systemmodel.pdf  used on input line 68.
+(pdftex.def)             Requested size: 176.39923pt x 136.764pt.
+
 Underfull \hbox (badness 1496) in paragraph at lines 89--90
 []\OT1/ptm/m/n/10 The CSI er-ror is as-sumed to be bounded [12], i.e.,
+ []
+
+
+Underfull \hbox (badness 1742) in paragraph at lines 113--118
+\OT1/ptm/m/n/10 where $\OT1/cmr/m/n/10 ^^D[] = [][] + [][]$ \OT1/ptm/m/n/10 and $\OT1/cmr/m/n/10 ^^D[] =
  []
 
 [2 <./figure/systemmodel.pdf>]
@@ -837,34 +842,68 @@ Overfull \hbox (1.51233pt too wide) detected at line 204
 
 [3] [4]
 Package epstopdf Info: Source file: <figure/1_figConv.eps>
-(epstopdf)                    date: 2025-09-29 14:09:40
-(epstopdf)                    size: 65155 bytes
+(epstopdf)                    date: 2025-10-10 10:52:22
+(epstopdf)                    size: 63489 bytes
 (epstopdf)             Output file: <figure/1_figConv-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-09-29 14:12:47
-(epstopdf)                    size: 31332 bytes
+(epstopdf)                    date: 2025-10-10 10:52:40
+(epstopdf)                    size: 32084 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/1_figConv-eps-converted-to.pdf figure/1_figConv.eps>
-(epstopdf)             \includegraphics on input line 308.
+(epstopdf)             \includegraphics on input line 305.
 Package epstopdf Info: Output file is already uptodate.
 <figure/1_figConv-eps-converted-to.pdf, id=52, 421.575pt x 316.18124pt>
 File: figure/1_figConv-eps-converted-to.pdf Graphic file (type pdf)
 <use figure/1_figConv-eps-converted-to.pdf>
-Package pdftex.def Info: figure/1_figConv-eps-converted-to.pdf  used on input line 308.
+Package pdftex.def Info: figure/1_figConv-eps-converted-to.pdf  used on input line 305.
 (pdftex.def)             Requested size: 154.80157pt x 116.10233pt.
+
+Overfull \hbox (18.39966pt too wide) in paragraph at lines 304--306
+ []        [] 
+ []
+
 Package epstopdf Info: Source file: <figure/2_figRate_CRB.eps>
-(epstopdf)                    date: 2025-09-29 14:11:17
-(epstopdf)                    size: 32527 bytes
+(epstopdf)                    date: 2025-10-10 10:53:28
+(epstopdf)                    size: 30737 bytes
 (epstopdf)             Output file: <figure/2_figRate_CRB-eps-converted-to.pdf>
-(epstopdf)                    date: 2025-09-29 14:12:49
-(epstopdf)                    size: 12789 bytes
+(epstopdf)                    date: 2025-10-10 10:56:48
+(epstopdf)                    size: 13269 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/2_figRate_CRB-eps-converted-to.pdf figure/2_figRate_CRB.eps>
-(epstopdf)             \includegraphics on input line 315.
+(epstopdf)             \includegraphics on input line 312.
 Package epstopdf Info: Output file is already uptodate.
 <figure/2_figRate_CRB-eps-converted-to.pdf, id=53, 421.575pt x 316.18124pt>
 File: figure/2_figRate_CRB-eps-converted-to.pdf Graphic file (type pdf)
 <use figure/2_figRate_CRB-eps-converted-to.pdf>
-Package pdftex.def Info: figure/2_figRate_CRB-eps-converted-to.pdf  used on input line 315.
+Package pdftex.def Info: figure/2_figRate_CRB-eps-converted-to.pdf  used on input line 312.
 (pdftex.def)             Requested size: 154.80157pt x 116.10233pt.
- [5 <./figure/1_figConv-eps-converted-to.pdf> <./figure/2_figRate_CRB-eps-converted-to.pdf>] (./main.aux)
+
+Overfull \hbox (18.39966pt too wide) in paragraph at lines 311--313
+ []        [] 
+ []
+
+Package epstopdf Info: Source file: <figure/3_figAN.eps>
+(epstopdf)                    date: 2025-10-10 10:53:48
+(epstopdf)                    size: 45679 bytes
+(epstopdf)             Output file: <figure/3_figAN-eps-converted-to.pdf>
+(epstopdf)                    date: 2025-10-10 10:56:50
+(epstopdf)                    size: 27819 bytes
+(epstopdf)             Command: <repstopdf --outfile=figure/3_figAN-eps-converted-to.pdf figure/3_figAN.eps>
+(epstopdf)             \includegraphics on input line 319.
+Package epstopdf Info: Output file is already uptodate.
+<figure/3_figAN-eps-converted-to.pdf, id=54, 421.575pt x 316.18124pt>
+File: figure/3_figAN-eps-converted-to.pdf Graphic file (type pdf)
+<use figure/3_figAN-eps-converted-to.pdf>
+Package pdftex.def Info: figure/3_figAN-eps-converted-to.pdf  used on input line 319.
+(pdftex.def)             Requested size: 154.80157pt x 116.10233pt.
+
+Overfull \hbox (18.39966pt too wide) in paragraph at lines 318--320
+ []        [] 
+ []
+
+
+Underfull \hbox (badness 2393) in paragraph at lines 320--320
+[]\OT1/ptm/m/n/10 Fig. 4: |Com-par-i-son of worst-case
+ []
+
+[5 <./figure/1_figConv-eps-converted-to.pdf> <./figure/2_figRate_CRB-eps-converted-to.pdf> <./figure/3_figAN-eps-converted-to.pdf>] [6] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -881,18 +920,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23660 strings out of 478268
- 480779 string characters out of 5850345
- 1074743 words of memory out of 5000000
- 41487 multiletter control sequences out of 15000+600000
- 508216 words of font info for 107 fonts, out of 8000000 for 9000
+ 23669 strings out of 478268
+ 481058 string characters out of 5850345
+ 1075751 words of memory out of 5000000
+ 41494 multiletter control sequences out of 15000+600000
+ 509352 words of font info for 108 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  83i,16n,80p,1852b,1258s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {d:/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2022/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><d:/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 325092 bytes).
+Output written on main.pdf (6 pages, 358856 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
+ 156 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
