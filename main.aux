@@ -37,6 +37,7 @@
 \abx@aux@cite{0}{lyuDualRobust2024}
 \abx@aux@segm{0}{0}{lyuDualRobust2024}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}System Model}{1}{}\protected@file@percent }
 \citation{linMultiAntenna2024}
 \abx@aux@cite{0}{linMultiAntenna2024}
 \abx@aux@segm{0}{0}{linMultiAntenna2024}
@@ -46,17 +47,16 @@
 \citation{leeMaxMin2023}
 \abx@aux@cite{0}{leeMaxMin2023}
 \abx@aux@segm{0}{0}{leeMaxMin2023}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces An illustration of the cooperative AAV-enabled ISAC system.\relax }}{2}{}\protected@file@percent }
+\citation{huCollaborative2025}
+\abx@aux@cite{0}{huCollaborative2025}
+\abx@aux@segm{0}{0}{huCollaborative2025}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces An illustration of the AAV-enabled ISAC system.\relax }}{2}{}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:systemModel}{{1}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {II}System Model}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Signal Model}{2}{}\protected@file@percent }
 \newlabel{eq:commChannelUncertainty}{{2}{2}}
 \newlabel{eq:sensingChannelUncertainty}{{5}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Performance Metrics}{2}{}\protected@file@percent }
-\citation{huCollaborative2025}
-\abx@aux@cite{0}{huCollaborative2025}
-\abx@aux@segm{0}{0}{huCollaborative2025}
 \citation{xuResource2025}
 \abx@aux@cite{0}{xuResource2025}
 \abx@aux@segm{0}{0}{xuResource2025}
@@ -72,26 +72,15 @@
 \@writefile{toc}{\contentsline {section}{\numberline {III}Proposed Robust Solution}{3}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Beamforming Under Imperfect CSI}{3}{}\protected@file@percent }
 \newlabel{eq:objP1}{{14}{3}}
+\newlabel{eq:lowerBoundRc}{{18}{3}}
+\newlabel{eq:lowerBoundRp}{{19}{3}}
+\newlabel{eq:lowerBoundSensingSINR}{{20}{3}}
 \citation{shenFractional2018a}
 \abx@aux@cite{0}{shenFractional2018a}
 \abx@aux@segm{0}{0}{shenFractional2018a}
 \citation{cvx}
 \abx@aux@cite{0}{cvx}
 \abx@aux@segm{0}{0}{cvx}
-\newlabel{eq:lowerBoundRc}{{18}{4}}
-\newlabel{eq:lowerBoundRp}{{19}{4}}
-\newlabel{eq:lowerBoundSensingSINR}{{20}{4}}
-\newlabel{eq:gammaR2}{{21a}{4}}
-\newlabel{eq:rateConstraint2}{{21b}{4}}
-\newlabel{eq:splittedRateConstraint2}{{21c}{4}}
-\newlabel{eq:gammaRQT}{{23a}{4}}
-\newlabel{eq:rateConstraintQT}{{23b}{4}}
-\newlabel{eq:splittedRateConstraintQT}{{23c}{4}}
-\newlabel{eq:yr}{{24a}{4}}
-\newlabel{eq:yc}{{24b}{4}}
-\newlabel{eq:yp}{{24c}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}AAV Deployment Optimization}{4}{}\protected@file@percent }
-\newlabel{eq:objP2}{{25}{4}}
 \citation{lyuJoint2023}
 \abx@aux@cite{0}{lyuJoint2023}
 \abx@aux@segm{0}{0}{lyuJoint2023}
@@ -104,20 +93,30 @@
 \citation{lyuDualRobust2024}
 \abx@aux@cite{0}{lyuDualRobust2024}
 \abx@aux@segm{0}{0}{lyuDualRobust2024}
+\newlabel{eq:gammaR2}{{21a}{4}}
+\newlabel{eq:rateConstraint2}{{21b}{4}}
+\newlabel{eq:splittedRateConstraint2}{{21c}{4}}
+\newlabel{eq:gammaRQT}{{23a}{4}}
+\newlabel{eq:rateConstraintQT}{{23b}{4}}
+\newlabel{eq:splittedRateConstraintQT}{{23c}{4}}
+\newlabel{eq:yr}{{24a}{4}}
+\newlabel{eq:yc}{{24b}{4}}
+\newlabel{eq:yp}{{24c}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}AAV Deployment Optimization}{4}{}\protected@file@percent }
+\newlabel{eq:objP2}{{25}{4}}
+\newlabel{eq:objP2}{{28a}{4}}
+\newlabel{eq:rateConstraint2.1}{{28b}{4}}
+\newlabel{eq:splittedRateConstraint2.1}{{28c}{4}}
+\newlabel{eq:relaxUAVdistance}{{28d}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Simulation Results}{4}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Convergence behavior of the proposed optimization method.\relax }}{5}{}\protected@file@percent }
 \newlabel{fig:Conv}{{2}{5}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Comparison of WCCRB under different WCR constraints.\relax }}{5}{}\protected@file@percent }
 \newlabel{fig:boundComparison}{{3}{5}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Comparison of worst-case CRB-rate performance with different antenna numbers.\relax }}{5}{}\protected@file@percent }
 \newlabel{fig:boundAntennaNum}{{4}{5}}
-\newlabel{eq:objP2}{{28a}{5}}
-\newlabel{eq:rateConstraint2.1}{{28b}{5}}
-\newlabel{eq:splittedRateConstraint2.1}{{28c}{5}}
-\newlabel{eq:relaxUAVdistance}{{28d}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Overall Optimization Algorithm}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Simulation Results}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{6}{}\protected@file@percent }
-\abx@aux@read@bbl@mdfivesum{66A748A40C069C0670A5A884B6260E9C}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{5}{}\protected@file@percent }
+\abx@aux@read@bbl@mdfivesum{321C12779938047FCDEFA52C66DF0940}
 \abx@aux@defaultrefcontext{0}{zengWireless2016}{none/global//global/global}
 \abx@aux@defaultrefcontext{0}{muUAV2023}{none/global//global/global}
 \abx@aux@defaultrefcontext{0}{mengUAVEnabled2024}{none/global//global/global}
@@ -150,4 +149,4 @@
 \abx@aux@defaultlabelprefix{0}{shenFractional2018a}{}
 \abx@aux@defaultlabelprefix{0}{cvx}{}
 \abx@aux@defaultlabelprefix{0}{lyuJoint2023}{}
-\gdef \@abspage@last{6}
+\gdef \@abspage@last{5}

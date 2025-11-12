@@ -35,7 +35,18 @@
 \begin{document}
 \title{Beamforming and Deployment Design for Cooperative AAV-enabled ISAC with Rate-Splitting Multiple Access under Imperfect CSI}
 \author{Yunbo Hu, Xiaoxiao Zhuo,~\IEEEmembership{Member,~IEEE}, Liang Tang,~\IEEEmembership{Member,~IEEE}, and Yu Zhao
-% \thanks{Corresponding author: Xiaoxiao Zhuo.}
+  \thanks{
+    % This paper is supported by National Natural Science Foundation of China under Grant No. 62401553 and Shanghai Rising-Star Program under Grant No. 24YF2754900. (\textit{Corresponding author: Liang Tang})
+
+ Yunbo Hu and Chenxu Wang are with the Science and Technology on Micro-system Laboratory, Shanghai Institute of Microsystem and Information Technology, Chinese Academy of Sciences, Shanghai 200050, China and the University of Chinese Academy of Sciences, Beijing 101408, China (email: \{huyb, wangcx\}@mail.sim.ac.cn).
+  
+ Xiaoxiao Zhuo, Liang Tang, and Yu Zhao are with the Science and Technology on Micro-system Laboratory, Shanghai Institute of Microsystem and Information Technology, Chinese Academy of Sciences, Shanghai 200050, China (email: \{zhuoxx, wenkai.lu, liang.tang, zhiyong.bu\}@mail.sim.ac.cn). 
+  
+ Wen Wu is with the Frontier Research Center, Peng Cheng Laboratory, Shenzhen 518055,   China  (email: wuw02@pcl.ac.cn).
+  
+  % Fengzhong Qu is with the Ocean College, Zhejiang University, Zhoushan 316021, China (email: jimqufz@zju.edu.cn).
+ }
+
 }
 
 \markboth{Journal of \LaTeX\ Class Files,~Vol.~18, No.~9, September~2020}%
@@ -44,7 +55,7 @@
 \maketitle
 
 \begin{abstract}
-In this letter, we study a cooperative autonomous aerial vehicle (AAV)-enabled integrated sensing and communication (ISAC) system to fully exploit the spectrum resource. However, such an AAV-enabled ISAC system faces some challenges, including the efficient ISAC waveform design scheme, the inherent performance trade-off between sensing and communication, and the impact of imperfect channel state information (CSI) caused by the mobility of the AAVs. To tackle the aforementioned challenges, we propose a novel three-layer RSMA-based ISAC scheme, where the dedicated sensing signal and communication signals are superimposed and processed successively. Based on the proposed scheme, we derive the achievable rate and the Cramér-Rao bound (CRB) of the proposed scheme, and formulate the joint beamforming and deployment optimization problem. To solve the non-convex problem with channel uncertainty, we rewrite the problem into its worst case, transform the non-convex expressions into a tractable form, and solve the problem based on the principle of alternative optimization (AO). Extensive simulations are conducted to validate the effectiveness and advantage of our proposed scheme.
+In this letter, we study a cooperative autonomous aerial vehicle (AAV)-enabled integrated sensing and communication (ISAC) system to fully exploit the spectrum resource. However, such an AAV-enabled ISAC system faces several challenges, including the efficient design of ISAC waveforms, the trade-off between sensing and communication, and the impact of imperfect channel state information (CSI). To tackle the aforementioned challenges, we propose a novel three-layer RSMA-based ISAC scheme, where the dedicated sensing signal and communication signals are superimposed and processed successively. Based on the proposed scheme, we derive the achievable rate and the Cramér-Rao bound (CRB), and formulate the joint beamforming and deployment optimization problem. To solve the non-convex problem with channel uncertainty, we rewrite the problem into its worst case, transform the non-convex expressions into a tractable form, and solve the problem based on the principle of alternative optimization (AO). Extensive simulations are conducted to validate the effectiveness and advantage of our proposed scheme.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -53,24 +64,27 @@ Integrated sensing and communication (ISAC), robust optimization, autonomous aer
 
 
 \section{Introduction}
-Autonomous aerial vehicle (AAV) is commonly considered as an effective platform to provide seamless coverage and enhance the overall performance of cellular networks. The flexible deployment and high mobility of AAV can be utilized to improve the line-of-sight (LoS) channel quality \cite{zengWireless2016}. Moreover, AAV can also be adopted as a suitable sensing platform with relative sensors equipped. The sensing coverage and high perspective view enable AAV to perform remote sensing, mapping, and monitoring tasks \cite{muUAV2023}. Since AAV can be utilized for both communication and sensing, it is natural to integrate these two functionalities on the AAV platform, which is referred to as AAV-enabled integrated sensing and communication (ISAC). Such integration can not only enhance the spectrum efficiency, but also enables the hardware reuse to reduce the size, weight, and power (SWaP) consumption of AAV \cite{mengUAVEnabled2024}. Moreover, AAV can exploit the mutual benefits between communication and sensing, i.e., sensing-assisted communication \cite{huCollaborative2025}. 
-% due to the hardware constraint of AAV, the full-duplex operation is difficult to implement. Thus, the bistatic/multistatic sensing mode is more suitable for AAV-enabled ISAC system\cite{zhangOverview2021}.
+% Autonomous aerial vehicle (AAV) is commonly considered as an effective platform to provide seamless coverage and enhance the overall performance of cellular networks. The flexible deployment and high mobility of AAV can be utilized to improve the line-of-sight (LoS) channel quality \cite{zengWireless2016}. Moreover, AAV can also be adopted as a suitable sensing platform with relative sensors equipped. The sensing coverage and high-altitude perspective enable AAVs to perform remote sensing, mapping, and monitoring tasks \cite{muUAV2023}. Since AAV can be utilized for both communication and sensing, AAV-enabled integrated sensing and communication (ISAC) attracts significant attention. Such integration can not only enhance spectrum efficiency but also enable hardware reuse to reduce the size, weight, and power (SWaP) consumption of AAV \cite{mengUAVEnabled2024} and exploit the mutual benefits between communication and sensing \cite{huCollaborative2025}. 
+Autonomous aerial vehicle (AAV) is commonly considered as an effective platform to provide seamless coverage and enhance the overall performance of cellular networks\cite{zengWireless2016,muUAV2023}. Since AAV can be utilized for both communication and sensing, AAV-enabled integrated sensing and communication (ISAC) attracts significant attention. Such integration can not only enhance the spectrum efficiency but also enable the hardware reuse to reduce the size, weight, and power (SWaP) consumption of AAV \cite{mengUAVEnabled2024}, and exploit the mutual benefits between communication and sensing \cite{huCollaborative2025}. 
 
-Despite the fact that AAV-enabled ISAC has many advantages, there are still several challenges to tackle. Firstly, an efficient waveform design scheme is required to fully exploit the time and frequency resources for both communication and sensing \cite{chenJoint2023b}. Thus, a suitable joint sensing and communication scheme should be dedicatedly designed. Secondly, the trade-off between sensing and communication should be considered to simultaneously guarantee the performance of both functions. For instance, the AAV position has a distinct impact on communication and sensing performance, respectively \cite{huCollaborative2025}. Therefore, the resource allocation and AAV deployment should be optimized to balance the performance trade-off. 
-Thirdly, the dynamic characteristic of AAV makes the accurate instantaneous channel state information (CSI) acquisition difficult. Since the communication resource allocation heavily relies on accurate CSI, imperfect CSI should be considered in the AAV-enabled ISAC system \cite{maoUAVAssisted2025}.
+Despite the advantages of AAV-enabled ISAC, several challenges remain. Firstly, an efficient waveform design scheme is required to fully exploit the time and frequency resources for both communication and sensing \cite{chenJoint2023b}. 
+% Thus, a suitable joint sensing and communication scheme should be dedicatedly designed to fully exploit the time and frequency resources. 
+Secondly, the trade-off between sensing and communication should be considered to balance the performance trade-off. For instance, the AAV position has a distinct impact on communication and sensing performance, respectively \cite{huCollaborative2025}. 
+% Therefore, the resource allocation and AAV deployment should be optimized to balance the performance trade-off. 
+Thirdly, AAV's dynamic characteristics make it difficult to acquire instantaneous channel state information (CSI) accurately. Since the communication resource allocation heavily relies on accurate CSI, imperfect CSI should be considered in the AAV-enabled ISAC system \cite{maoUAVAssisted2025}.
 
-Some researchers have focused on the AAV-enabled ISAC system and its relative challenges. To design a sensing and communication waveform, in \cite{xuRateSplitting2021a}, researchers study the cooperative localization system based on multiple communication base stations (BSs). Rate-splitting multiple access (RSMA) technology is adopted to flexibly manage the multi-user interference and duplex of sensing and communication. Meanwhile, to solve the resource allocation problem, researchers in \cite{mengUAVEnabled2023} and \cite{jingISAC2024} investigate the joint trajectory design and resource allocation method for AAV-enabled monostatic ISAC systems. Moreover, to address the imperfect CSI issue, a robust beamforming design is proposed in \cite{lyuDualRobust2024} to simultaneously optimize channel capacity and the sensing beam pattern under imperfect CSI. However, the aforementioned works mainly focus on the monostatic sensing mode, which is difficult to implement in an AAV-enabled ISAC system due to the hardware constraints of AAV. Thus, a bistatic/multistatic framework is more suitable for AAV-enabled ISAC. Nevertheless, due to the fact that the communication symbols are unknown to the receivers, the joint sensing and communication scheme should be re-designed, and sensing metrics, such as signal-to-interference-plus-noise ratio (SINR), should be redefined. Furthermore, the new bistatic/multistatic scheme and sensing metric will induce a distinct optimization problem, which should be carefully investigated. 
+Some researchers have focused on related challenges. In \cite{xuRateSplitting2021a}, researchers adopt rate-splitting multiple access (RSMA) technology to flexibly manage the multi-user interference and duplex of sensing and communication. Meanwhile, researchers in \cite{mengUAVEnabled2023} and \cite{jingISAC2024} investigate the joint trajectory design and resource allocation method for AAV-enabled monostatic ISAC systems. Moreover, a robust beamforming design is proposed in \cite{lyuDualRobust2024} to simultaneously optimize channel capacity and the sensing beam pattern under imperfect CSI. However, the aforementioned works mainly focus on monostatic systems, which are difficult to implement on AAVs due to their hardware constraints. Thus, a bistatic/multistatic framework is more suitable for AAV-enabled ISAC. Nevertheless, because the communication symbols are unknown to the receivers, the joint sensing and communication scheme should be redesigned, and sensing metrics, such as the signal-to-interference-plus-noise ratio (SINR), should be redefined. Furthermore, the new bistatic/multistatic sensing metric will introduce a distinct optimization problem that should be carefully investigated. 
 
-In this letter, we propose a novel cooperative AAV-enabled ISAC framework, where AAVs transmit the ISAC signals to the user equipments (UEs) and the ground target, and the ground BS receives the echo signals reflected from the target for positioning. To fully exploit the spectrum resource, a three-layer RSMA is adopted to jointly manage the interference among multi-user and between sensing and communication. Based on the proposed system framework, we model the channel capacity and Cramér-Rao bound (CRB) under the imperfect CSI, and formulate the joint beamforming and AAV deployment optimization problem, which is challenging to solve due to the statistical and non-convex form of the channel capacity and CRB. To address the intractable original problem, we propose an effective solution based on alternative optimization (AO) and some equivalent mathematical transformations. Simulations demonstrate the advantages of our proposed scheme in both sensing and communication.
+In this letter, we propose a novel cooperative AAV-enabled ISAC framework, where AAVs transmit the ISAC signals to the user equipments (UEs) and the target, and the ground BS receives the reflected signals from the target for positioning. To fully exploit the spectrum resource, a three-layer RSMA is adopted to jointly manage the interference among users and between sensing and communication. Based on the proposed framework, we model the channel capacity and Cramér-Rao bound (CRB) under the imperfect CSI, and formulate the joint beamforming and AAV deployment optimization problem, which is challenging to solve due to the statistical and non-convex form of the channel capacity and CRB. To address the intractable problem, we propose an effective solution based on alternative optimization (AO) and some equivalent mathematical transformations. Simulations demonstrate the advantages of our proposed scheme in both sensing and communication.
 
 \section{System Model}
 \begin{figure}[t]
     \centering
     \includegraphics[width = 0.7\linewidth]{figure/systemmodel.pdf}
-    \caption{An illustration of the cooperative AAV-enabled ISAC system.}
+    \caption{An illustration of the AAV-enabled ISAC system.}
     \label{fig:systemModel}
 \end{figure}
-In this section, we focus on a cooperative AAV-enabled ISAC system, which is illustrated in Fig. \ref{fig:systemModel}. There are \(T\) AAVs employed in the serving area, and the UEs are divided into \(T\) clusters served by corresponding AAVs respectively. Without loss of generality, we assume that the number of UEs in each cluster is \(K\). Each AAV is equipped with a half-wavelength uniform linear array with \(N_t\) antennas, while each UE is equipped with a single antenna. The AAVs transmit orthogonal ISAC (i.e., time orthogonal or frequency orthogonal) signals to the UEs and the sensing target, and the ground BS with a single antenna receives the reflected signals from the target for positioning. The coordinates of the \(t\)-th AAV, the \(k\)-th UE in the \(t\)-th cluster, the target, and the ground base station are denoted as \(\boldsymbol{x}^{U}_{t}\), \(\boldsymbol{x}_{t,k}\), \(\boldsymbol{x}_{r}\) and \(\boldsymbol{x}^{B}\in \mathbb{R}^{3\times 1}\), respectively.
+As illustrated in Fig. \ref{fig:systemModel}, we focus on a cooperative AAV-enabled ISAC system. There are \(T\) AAVs employed in the area, and the UEs are divided into \(T\) clusters served by corresponding AAVs respectively. Without loss of generality, we assume that the number of UEs in each cluster is \(K\). Each AAV is equipped with a half-wavelength uniform linear array with \(N_t\) antennas, while each UE is equipped with a single antenna. The AAVs transmit frequency orthogonal ISAC signals to the UEs and the target, and the ground BS with a single antenna receives the reflected signals from the target for positioning. The coordinates of the \(t\)-th AAV, the \(k\)-th UE in the \(t\)-th cluster, the target, and the ground base station are denoted as \(\boldsymbol{x}^{U}_{t}\), \(\boldsymbol{x}_{t,k}\), \(\boldsymbol{x}_{r}\) and \(\boldsymbol{x}^{B}\in \mathbb{R}^{3\times 1}\), respectively.
 
 \subsection{Signal Model}
 Inspired by RSMA, sensing and communication waveforms can emerge non-orthogonally. The received signal of the \(k\)-th UE in the \(t\)-th cluster can be expressed as 
@@ -79,27 +93,25 @@ Inspired by RSMA, sensing and communication waveforms can emerge non-orthogonall
 \end{align}
 where \(s^{r}_{t}\), \(s_{t}^{c}\), and \(s^{p}_{t,k}\) denote the radar sequence, the common message, and the private message for the \(k\)-th UE in the \(t\)-th cluster, respectively. And we assume that \(\mathbb{E}(s^{r}_{t})=\mathbb{E}(s_{t}^{c})=\mathbb{E}(s^{p}_{t,k})=1\). \(\boldsymbol{p}^{r}_{t}\), \(\boldsymbol{p}^{c}_{t}\), and \(\boldsymbol{p}^{p}_{t,k}\in\mathbb{C}^{N_t\times 1}\) denote the corresponding precoding vectors. \(n_{t,k}\) denotes the Gaussian white noise, which follows the distribution of \(\mathcal{CN}(0,\sigma^2)\). \(\boldsymbol{h}_{t,k}\in\mathbb{C}^{N_t \times 1}\) dentes the channel vector between the \(t\)-th AAV and the \(k\)-th UE in the \(t\)-th cluster. Considering the channel uncertainty, the estimated channel \(\hat{\boldsymbol{h}}_{t,k}\) satisfies 
 \begin{align}
- \boldsymbol{h}_{t,k} = \hat{\boldsymbol{h}}_{t,k} + \Delta\boldsymbol{h}_{t,k}, \forall k,t,\label{eq:commChannelUncertainty}
+ \boldsymbol{h}_{t,k} = \hat{\boldsymbol{h}}_{t,k} + \Delta\boldsymbol{h}_{t,k}, \forall k,t,\label{eq:commChannelUncertainty}
 \end{align} 
 where \(\Delta\boldsymbol{h}_{t,k}\) denotes the channel estimation error jointly caused by the AAV jitter and noise, and \(\hat{\boldsymbol{h}}_{t,k}\) denotes the imperfect CSI at the \(k\)-th AAV. \(\hat{\boldsymbol{h}}_{t,k}\) is related to the position of the \(t\)-th AAV and \(k\)-th UE, which can be modeled as \cite{linMultiAntenna2024}
 \begin{align}
- \hat{\boldsymbol{h}}_{t,k} = \sqrt{\frac{\beta}{\left\Vert \boldsymbol{x}^{U}_{t} - \boldsymbol{x}_{t,k} \right\Vert^2}}\boldsymbol{a}(\theta_{t,k}),
+ \hat{\boldsymbol{h}}_{t,k} = \sqrt{\frac{\beta}{\left\Vert \boldsymbol{x}^{U}_{t} - \boldsymbol{x}_{t,k} \right\Vert^2}}\boldsymbol{a}(\theta_{t,k}),
 \end{align}
-where \(\beta\) denotes the channel gain at the reference distance of \(1;\text{m}\), the steering vector \(\boldsymbol{a}(\theta_{t,k})\) is defined as \(\boldsymbol{a}(\theta_{t,k})=[1,\exp(-j\pi\sin\theta_{t,k}),\cdots,\exp(-j\pi\sin\theta_{t,k}(N_t-1))]^H\), and \(\theta_{t,k}\) denotes the angle of departure (AoD) between the \(t\)-th AAV and the \(k\)-th UE. Without generality, we assume that the ULA is parallel to the \(x\)-axis, thus \(\sin\theta_{t,k} = \frac{\boldsymbol{x}^{U}_{t}(2) - \boldsymbol{x}_{t,k}(2)}{\Vert \boldsymbol{x}^{U}_{t} - \boldsymbol{x}_{t,k}\Vert}\).
+where \(\beta\) denotes the channel gain at the reference distance of \(1\;\text{m}\), the steering vector \(\boldsymbol{a}(\theta_{t,k})\) is defined as \(\boldsymbol{a}(\theta_{t,k})=[1,\exp(-j\pi\sin\theta_{t,k}),\cdots,\exp(-j\pi\sin\theta_{t,k}(N_t-1))]^T\), and \(\theta_{t,k}\) denotes the angle of departure (AoD) between the \(t\)-th AAV and the \(k\)-th UE. Without generality, we assume that the ULA is parallel to the \(x\)-axis, thus \(\sin\theta_{t,k} = \frac{\boldsymbol{x}^{U}_{t}(2) - \boldsymbol{x}_{t,k}(2)}{\Vert \boldsymbol{x}^{U}_{t} - \boldsymbol{x}_{t,k}\Vert}\).
 
-The CSI error is assumed to be bounded \cite{xuResource2025}, i.e., \(\|\Delta\boldsymbol{h}_{t,k}\| \leq \epsilon_{c,t,k}\), where \(\epsilon\) denotes the maximum channel estimation error. 
-
-Similarly, the received signal from the \(k\)-th AAV at the ground BS can be written as 
+The CSI error is assumed to be bounded \cite{xuResource2025}, i.e., \(\|\Delta\boldsymbol{h}_{t,k}\| \leq \epsilon_{c,t,k}\), where \(\epsilon\) denotes the maximum channel estimation error. Similarly, the received signal from the \(k\)-th AAV at the ground BS can be written as 
 \begin{align}
  r_k = \boldsymbol{g}^{H}_{k}\boldsymbol{p}^{r}_{k} {s}^{r}_{k} + \boldsymbol{g}^{H}_{k}\boldsymbol{p}^{c}_{k}{s}^{c}_{k} + \boldsymbol{g}^{H}_{k}\sum_{k=1}^{K} \boldsymbol{p}^{p}_{k,k} {s}^{p}_{k,k} + w_k,
 \end{align}
 where \(w_k\) denotes the Gaussian white noise, which follows the distribution of \(\mathcal{CN}(0,\sigma^2)\). \(\boldsymbol{g}_{k}\in\mathbb{C}^{N_t \times 1}\) denotes the channel vector between the \(t\)-th AAV and the ground BS. The real channel \(\hat{\boldsymbol{g}}_{k}\) satisfies
 \begin{align}
- \boldsymbol{g}_{t} = \hat{\boldsymbol{g}}_{t} + \Delta\boldsymbol{g}_{t}, \forall t,\label{eq:sensingChannelUncertainty}
+ \boldsymbol{g}_{t} = \hat{\boldsymbol{g}}_{t} + \Delta\boldsymbol{g}_{t}, \forall t,\label{eq:sensingChannelUncertainty}
 \end{align} 
 where the sensing channel error \(\Delta\boldsymbol{g}_{t}\) also satisfies the bounded model \(\|\Delta\boldsymbol{g}_{t}\| \leq \epsilon_{r,t}\), and the imperfect sensing CSI \(\hat{\boldsymbol{g}}_{t}\) can be modeled as
 \begin{align}
- \hat{\boldsymbol{g}}_{t} = \sqrt{\frac{\beta \sigma_r}{\left\Vert \boldsymbol{x}^{U}_{t} - \boldsymbol{x}_{r} \right\Vert^2 \left\Vert \boldsymbol{x}_{r} - \boldsymbol{x}^{B} \right\Vert^2}}\boldsymbol{a}(\phi_{t}),
+ \hat{\boldsymbol{g}}_{t} = \sqrt{\frac{\beta \sigma_r}{\left\Vert \boldsymbol{x}^{U}_{t} - \boldsymbol{x}_{r} \right\Vert^2 \left\Vert \boldsymbol{x}_{r} - \boldsymbol{x}^{B} \right\Vert^2}}\boldsymbol{a}(\phi_{t}),
 \end{align}
 where \(\sigma_r\) denotes the radar cross section (RCS) of the target, and \(\phi_{k}\) denotes the AoD between the \(k\)-th AAV and the target. Similarly, we have \(\sin\phi_{t} = \frac{\boldsymbol{x}^{U}_{t}(2) - \boldsymbol{x}_{r}(2)}{\Vert \boldsymbol{x}^{U}_{t} - \boldsymbol{x}_{r}\Vert}\).
 
@@ -109,12 +121,12 @@ where \(\sigma_r\) denotes the radar cross section (RCS) of the target, and \(\p
 For communication, each UE first reconstructs the radar waveform with the aid of CSI and a pre-known radar sequence, and then decodes the common message and private message with successive interference cancellation (SIC). With the assumption of imperfect CSI and independence of the radar sequence and communication symbols, the SINR of the common message \(\gamma^{c}_{t,k}\) and private message \(\gamma^{p}_{t,k}\) at the \(k\)-th UE in the \(t\)-th cluster can be expressed as \cite{leeMaxMin2023}
 \begin{subequations}
 \begin{align}
-    \gamma^{c}_{t,k} &= \frac{\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{c}_{t} \right|^2}{\Xi^{c}_{t,k}+  \sum_{i=1}^{K}\left| \boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2},\\
-    \gamma^{p}_{t,k} &= \frac{\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,k} \right|^2}{\Xi^{p}_{t,k} +\sum_{i\neq k}\left| \boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2},
+    \gamma^{c}_{t,k} &= \left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{c}_{t} \right|^2\Big/\left[\Xi^{c}_{t,k}+  \sum_{i=1}^{K}\left| \boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2\right],\\
+    \gamma^{p}_{t,k} &= \left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,k} \right|^2\Big/\left[\Xi^{p}_{t,k} +\sum_{i\neq k}\left| \boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2\right],
 \end{align}
 \end{subequations}
-where \(\Xi^{c}_{t,k}=\left| \Delta\boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{r}_{t}\right|^2 +\left| \Delta\boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{c}_{t}\right|^2\) and \(\Xi^{p}_{t,k}=\left| \Delta\boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{r}_{t}\right|^2 + \left| \Delta\boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{c}_{t}\right|^2 + \left| \Delta\boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{p}_{t,k}\right|^2\) denote the residual interference from the channel uncertainty.
-Thus, the achievable rate of the common message and the \(k\)-th UE in the \(t\)-th cluster can be expressed as
+where \(\Xi^{c}_{t,k}=\left| \Delta\boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{r}_{t}\right|^2 +\left| \Delta\boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{c}_{t}\right|^2\) and \(\Xi^{p}_{t,k}=\left| \Delta\boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{r}_{t}\right|^2 + \left| \Delta\boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{c}_{t}\right|^2 + \left| \Delta\boldsymbol{h}^{H}_{t,k}\boldsymbol{p}^{p}_{t,k}\right|^2\) denote the residual interference from the imperfect CSI.
+Thus, the achievable rates of the private and common messages can be expressed as
 \begin{subequations}
 \begin{align}
     &R^{p}_{t,k} = \log_2(1 + \gamma^{p}_{t,k}),\\
@@ -123,20 +135,20 @@ Thus, the achievable rate of the common message and the \(k\)-th UE in the \(t\)
 \end{subequations}
 
 
-As for the target sensing, the CRB is commonly adopted to evaluate the positioning accuracy. According to \cite{huCollaborative2025}, the positioning CRB is defined as the inverse of the effective Fisher information matrix (FIM), which can be expressed as 
+We adopt CRB as the sensing metric. According to \cite{huCollaborative2025}, the positioning CRB is defined as the inverse of the effective Fisher information matrix (FIM), which can be expressed as 
 \begin{align}
     &\text{CRB} = \text{tr}(\mathbf{F}^{-1}),\\
     &\mathbf{F} = 2B\sum_{t=1}^{T} \gamma_{k}^{r}\boldsymbol{f}_{t}\boldsymbol{f}^{T}_{t},
 \end{align}
-where \(B\) denotes the effective bandwidth of the signal, and \(\boldsymbol{f}_{k}\) is defined as
+where \(B\) denotes the effective bandwidth, and \(\boldsymbol{f}_{k}\) is defined as
 \begin{align}
- \boldsymbol{f}_{t} = 
+ \boldsymbol{f}_{t} = 
     \begin{bmatrix}
- \left.\frac{\boldsymbol{x}_{r}(1) - \boldsymbol{x}^U_{t}(1)}{\Vert \boldsymbol{x}_{r} - \boldsymbol{x}^U_{t} \Vert} + \frac{\boldsymbol{x}_{r}(1) - \boldsymbol{x}^B_{t}(1)}{\Vert \boldsymbol{x}_{r} - \boldsymbol{x}^B_{t} \Vert}\right.\\
- \left.\frac{\boldsymbol{x}_{r}(2) - \boldsymbol{x}^U_{t}(2)}{\Vert \boldsymbol{x}_{r} - \boldsymbol{x}^U_{t} \Vert} + \frac{\boldsymbol{x}_{r}(2) - \boldsymbol{x}^B_{t}(2)}{\Vert \boldsymbol{x}_{r} - \boldsymbol{x}^B_{t} \Vert}\right.
+ \left.\frac{\boldsymbol{x}_{r}(1) - \boldsymbol{x}^U_{t}(1)}{\Vert \boldsymbol{x}_{r} - \boldsymbol{x}^U_{t} \Vert} + \frac{\boldsymbol{x}_{r}(1) - \boldsymbol{x}^B_{t}(1)}{\Vert \boldsymbol{x}_{r} - \boldsymbol{x}^B_{t} \Vert}\right.\\
+ \left.\frac{\boldsymbol{x}_{r}(2) - \boldsymbol{x}^U_{t}(2)}{\Vert \boldsymbol{x}_{r} - \boldsymbol{x}^U_{t} \Vert} + \frac{\boldsymbol{x}_{r}(2) - \boldsymbol{x}^B_{t}(2)}{\Vert \boldsymbol{x}_{r} - \boldsymbol{x}^B_{t} \Vert}\right.
     \end{bmatrix}.
 \end{align}
-And the sensing SINR \(\gamma_{k}^{r}\) of the signal from the \(t\)-th AAV can be expressed as
+And the sensing SINR \(\gamma_{t}^{r}\) of the signal from the \(t\)-th AAV can be expressed as
 \begin{align}
     \gamma_{t}^{r} = \frac{\left\Vert \boldsymbol{g}^{H}_{t}\boldsymbol{p}^{r}_{t} \right\Vert^2}{\left\Vert \boldsymbol{g}^{H}_{t}\boldsymbol{p}^{c}_{t} \right\Vert^2 + \sum_{j=1}^{K}\left\Vert \boldsymbol{g}^{H}_{t}\boldsymbol{p}^{p}_{t,j} \right\Vert^2 + \sigma^2}.\label{eq:SINRr}
 \end{align}
@@ -146,11 +158,11 @@ Due to the fact that the path loss of target sensing is always larger than commu
 \begin{subequations}
 \begin{align}
  (\text{P0})\quad&\min_{
- \substack{\left\{\boldsymbol{x}^{U}_{t}\right\},\left\{\boldsymbol{p}^{r}_{t}\right\},\left\{\boldsymbol{p}^{c}_{t}\right\},\\
- \left\{\boldsymbol{p}^{p}_{t,k}\right\},\left\{C_{t,k}
- \right\}}
+ \substack{\left\{\boldsymbol{x}^{U}_{t}\right\},\left\{\boldsymbol{p}^{r}_{t}\right\},\left\{\boldsymbol{p}^{c}_{t}\right\},\\
+ \left\{\boldsymbol{p}^{p}_{t,k}\right\},\left\{C_{t,k}
+ \right\}}
  } \text{tr}(\mathbf{F}^{-1})\label{eq:obj}\\
- \text{s.t.}\quad& R^{p}_{t,k} + C_{t,k} \geq R_{\min}, \forall k,t,\label{eq:rateConstraint}\\
+ \text{s.t.}\quad& R^{p}_{t,k} + C_{t,k} \geq R_{\min}, \forall k,t,\label{eq:rateConstraint}\\
     & \sum_{k=1}^{K} C_{t,k} \leq R^{c}_{t}, \forall t, \label{eq:splittedRateConstraint}\\
     & \left\Vert\boldsymbol{p}^{r}_{t}\right\Vert^2 + \left\Vert \boldsymbol{p}^{c}_{t}\right\Vert^2 + \sum_{k=1}^{K} \left\Vert\boldsymbol{p}^{p}_{t,k}\right\Vert^2 \leq P_{\max}, \forall t, \label{eq:powerConstraint}\\
     & \left\Vert \boldsymbol{x}^{U}_{t} - \boldsymbol{x}^{U,Init}_{t}\right\Vert \leq d_{\max}, \forall t, \label{eq:AAVConstraint}\\
@@ -158,140 +170,156 @@ Due to the fact that the path loss of target sensing is always larger than commu
     & \left\Vert \boldsymbol{x}^{U}_{t} - \boldsymbol{x}^{U}_{i} \right\Vert^2 \geq d^2_{\min}, \forall t\neq i, \label{eq:AAVDistanceConstraint}
 \end{align}
 \end{subequations}
-where \eqref{eq:rateConstraint} and \eqref{eq:splittedRateConstraint} denote the minimum rate requirement of each UE and the constraint of the splitted common message, \eqref{eq:powerConstraint} denotes the maximum transmit power constraint, \eqref{eq:AAVConstraint}, \eqref{eq:AAVHeightConstraint}, and \eqref{eq:AAVDistanceConstraint} denote the maximum flying distance, fixed flying height, and minimum distance between AAVs, respectively. And \(R_{min}\) is the minimum rate requirement of each UE, \(p_{\max}\) is the maximum transmit power, \(d_{\max}\) is the maximum flying distance, \(H\) is the AAV height, and \(d_{\min}\) is the minimum AAV distance. The optimization problem P0 is challenging to solve due to the non-convexity and the channel uncertainty of the objective function and constraints. Thus, the surrogate form of 
+where \eqref{eq:rateConstraint} and \eqref{eq:splittedRateConstraint} denote the minimum rate of per-user constraint and message splitting constraint, \eqref{eq:powerConstraint} denotes the maximum transmit power constraint, \eqref{eq:AAVConstraint}, \eqref{eq:AAVHeightConstraint}, and \eqref{eq:AAVDistanceConstraint} denote the maximum flying distance, fixed flying height, and minimum distance between AAVs, respectively. And \(R_{min}\) is the minimum rate requirement of each UE, \(p_{\max}\) is the maximum transmit power, \(d_{\max}\) is the maximum flying distance, \(H\) is the AAV height, and \(d_{\min}\) is the minimum AAV distance. 
 
 \section{Proposed Robust Solution}
-To tackle the intractable original problem P0, we propose an effective solution based on AO. Specifically, P0 is decomposed into beamforming and AAV deployment problems, which can be solved iteratively until convergence.
+To tackle the intractable original problem P0, we propose an effective solution based on AO. Specifically, P0 is decomposed into a beamforming and an AAV deployment problem, which can be solved iteratively.
 \subsection{Beamforming Under Imperfect CSI}
 We first focus on the beamforming design with the given AAV deployment. The beamforming problem can be formulated as
 \begin{align}
  (\text{P1})\quad&\min_{
- \substack{\left\{\boldsymbol{p}^{r}_{t}\right\},\left\{\boldsymbol{p}^{c}_{t}\right\},\\
- \left\{\boldsymbol{p}^{p}_{t,k}\right\},\left\{C_{t,k}
- \right\}}
+ \substack{\left\{\boldsymbol{p}^{r}_{t}\right\},\left\{\boldsymbol{p}^{c}_{t}\right\},\\
+ \left\{\boldsymbol{p}^{p}_{t,k}\right\},\left\{C_{t,k}
+ \right\}}
  } \text{tr}(\mathbf{F}^{-1})\label{eq:objP1}\\
- \text{s.t.}\quad& \eqref{eq:rateConstraint}, \eqref{eq:splittedRateConstraint}, \text{and } \eqref{eq:powerConstraint}.\notag
+ \text{s.t.}\quad& \eqref{eq:rateConstraint}, \eqref{eq:splittedRateConstraint}, \text{and } \eqref{eq:powerConstraint}.\notag
 \end{align}
-To address the non-convexity of the objective function, we give a Theorem to transform to illustrate that the CRB minimization problem is equivalent to the SINR maximization problem.
+To address the non-convexity of the objective function, we provide the following Theorem.
 \begin{theorem}
  The objective function \eqref{eq:objP1} is equivalent to the \(T\) maximization subproblems
     \begin{align}
  (\text{P1.1})\quad&\mathop{\max}_{\substack{\boldsymbol{p}^{r}_{t},\boldsymbol{p}^{c}_{t},\\
- \boldsymbol{p}^{p}_{t,k},\left\{C_{t,k}\right\}}}\gamma_t^{r}, \forall t,\\
- \text{s.t.}\quad& \eqref{eq:rateConstraint}, \eqref{eq:splittedRateConstraint}, \text{and } \eqref{eq:powerConstraint}.\notag
+ \boldsymbol{p}^{p}_{t,k},\left\{C_{t,k}\right\}}}\gamma_t^{r}, \forall t,\\
+ \text{s.t.}\quad& \eqref{eq:rateConstraint}, \eqref{eq:splittedRateConstraint}, \text{and } \eqref{eq:powerConstraint}.\notag
     \end{align}
 \end{theorem}
 \begin{proof}
  We can calculate the partial derivative of the CRB with respect to \(\gamma_{t}^{r}\)
     \begin{align}
- \frac{\partial \text{tr}(\mathbf{F}^{-1})}{\partial \gamma_{t}^{r}} &= -\text{tr}\left(\mathbf{F}^{-1} \frac{\partial \mathbf{F}}{\partial \gamma_{t}^{r}} \mathbf{F}^{-1} \right)\notag\\
-        &= -2B\text{tr}\left(\mathbf{F}^{-1} \boldsymbol{f}_{t}\boldsymbol{f}^{T}_{t} \mathbf{F}^{-1} \right) \notag\\
-        &= -2B\boldsymbol{f}^{T}_{t} \mathbf{F}^{-1}\mathbf{F}^{-1} \boldsymbol{f}_{t} \notag\\
-        &\mathop{=}^{(a)}-2B\left\Vert \mathbf{F}^{-1} \boldsymbol{f}_{t} \right\Vert^2 \mathop{<} 0,
+ \frac{\partial \text{tr}(\mathbf{F}^{-1})}{\partial \gamma_{t}^{r}} &= 
+%  -\text{tr}\left(\mathbf{F}^{-1} \frac{\partial \mathbf{F}}{\partial \gamma_{t}^{r}} \mathbf{F}^{-1} \right)\notag\\
+%         &=
+ -2B\text{tr}\left(\mathbf{F}^{-1} \boldsymbol{f}_{t}\boldsymbol{f}^{T}_{t} \mathbf{F}^{-1} \right) 
+ \notag\\
+%         &= -2B\boldsymbol{f}^{T}_{t} \mathbf{F}^{-1}\mathbf{F}^{-1} \boldsymbol{f}_{t} \notag\\
+        &\mathop{=}-2B\left\Vert \mathbf{F}^{-1} \boldsymbol{f}_{t} \right\Vert^2 \mathop{<} 0,
     \end{align}
- where the equality \((a)\) holds since the FIM \(\mathbf{F}\) is an Hermitian matrix. Thus, the CRB is a monotonically decreasing function with respect to \(\gamma_{t}^{r}\). Due to the fact that the precoder vectors do not have an impact on \(\boldsymbol{f}_t\), the original objective function is equivalent to the four subproblems, which completes the proof.
+Thus, the CRB is a monotonically decreasing function with respect to \(\gamma_{t}^{r}\). Then the original objective function is equivalent to the four subproblems, completing the proof.
 \end{proof}
 
-Then, we focus on tackling the impact of the channel uncertainty on the objective function and constraints. 
+Then, we focus on tackling the impact of the channel uncertainty. 
 % According to Jensen's inequality, we have \(\mathbb{E}\left[\log_2\left(1+\frac{1}{x}\right)\right] \geq \log_2\left(1+\frac{1}{\mathbb{E}[x]}\right)\), since \(\log_2\left(1+\frac{1}{x}\right)\) is convex.
-Since function \(\log_2(1+1/x)\) is monotonically decreasing respect to \(x\), we can find a upper bound of the denominator of \(\gamma^{c}_{t,k}\) and \(\gamma^{p}_{t,k}\) to derive a lower bound of the achievable rate. Specifically, we can derive the following inequalities with the aid of the Cauchy-Schwarz inequality \cite{xuResource2025}
+We can find a lower bound of \(\gamma^{c}_{t,k}\) and \(\gamma^{p}_{t,k}\) to derive a lower bound of the achievable rate. Specifically, we can derive the following inequalities with the aid of the Cauchy-Schwarz inequality \cite{xuResource2025}
 \begin{subequations}
 \begin{align}
- \left| \Delta\boldsymbol{h}^{H}\boldsymbol{p}\right|^2 &\leq \epsilon^2\left\Vert \boldsymbol{p} \right\Vert^2,\\
- \left| (\hat{\boldsymbol{h}}^{H} + \Delta\boldsymbol{h}^{H})\boldsymbol{p}\right|^2 &\leq \left| \hat{\boldsymbol{h}}^{H}\boldsymbol{p}\right|^2+\left| \Delta\boldsymbol{h}^{H}\boldsymbol{p}\right|^2 + 2\left|\hat{\boldsymbol{h}}^{H}\boldsymbol{p}\right|\left|\Delta\boldsymbol{h}^{H}\boldsymbol{p}\right| \notag\\
-    &\leq \left| \hat{\boldsymbol{h}}^{H}\boldsymbol{p}\right|^2 + \left(\epsilon^2+2\epsilon\left\Vert \hat{\boldsymbol{h}} \right\Vert \right)\left\Vert \boldsymbol{p} \right\Vert^2,\\
- \left| (\hat{\boldsymbol{h}}^{H} + \Delta\boldsymbol{h}^{H})\boldsymbol{p}\right|^2 &\geq \left| \hat{\boldsymbol{h}}^{H}\boldsymbol{p}\right|^2+\left| \Delta\boldsymbol{h}^{H}\boldsymbol{p}\right|^2 - 2\left|\hat{\boldsymbol{h}}^{H}\boldsymbol{p}\right|\left|\Delta\boldsymbol{h}^{H}\boldsymbol{p}\right|\notag\\
-    &\geq \left| \hat{\boldsymbol{h}}^{H}\boldsymbol{p}\right|^2 - \left(2\epsilon\left\Vert \hat{\boldsymbol{h}} \right\Vert - \epsilon^2 \right)\left\Vert \boldsymbol{p} \right\Vert^2.
+%  \left| \Delta\boldsymbol{h}^{H}\boldsymbol{p}\right|^2 &\leq \epsilon^2\left\Vert \boldsymbol{p} \right\Vert^2,\\
+ \left| (\hat{\boldsymbol{h}}^{H} + \Delta\boldsymbol{h}^{H})\boldsymbol{p}\right|^2 
+%  &\leq \left| \hat{\boldsymbol{h}}^{H}\boldsymbol{p}\right|^2+\left| \Delta\boldsymbol{h}^{H}\boldsymbol{p}\right|^2 + 2\left|\hat{\boldsymbol{h}}^{H}\boldsymbol{p}\right|\left|\Delta\boldsymbol{h}^{H}\boldsymbol{p}\right| \notag\\
+&\leq 
+\left| \hat{\boldsymbol{h}}^{H}\boldsymbol{p}\right|^2 + \left(\epsilon^2+2\epsilon\left\Vert \hat{\boldsymbol{h}} \right\Vert \right)\left\Vert \boldsymbol{p} \right\Vert^2,\\
+ \left| (\hat{\boldsymbol{h}}^{H} + \Delta\boldsymbol{h}^{H})\boldsymbol{p}\right|^2 
+%  &\geq \left| \hat{\boldsymbol{h}}^{H}\boldsymbol{p}\right|^2+\left| \Delta\boldsymbol{h}^{H}\boldsymbol{p}\right|^2 - 2\left|\hat{\boldsymbol{h}}^{H}\boldsymbol{p}\right|\left|\Delta\boldsymbol{h}^{H}\boldsymbol{p}\right|\notag\\
+ &\geq \left| \hat{\boldsymbol{h}}^{H}\boldsymbol{p}\right|^2 - \left(2\epsilon\left\Vert \hat{\boldsymbol{h}} \right\Vert - \epsilon^2 \right)\left\Vert \boldsymbol{p} \right\Vert^2.
 \end{align}
 \end{subequations}
-Here, the above inequalities hold for any precoder vector \(\boldsymbol{p}\), channel vector \(\hat{\boldsymbol{h}}\), and the channel error bound \(\epsilon\).
-Therefore, we can find a lower bound in the worst-case rate (WCR) of the common message as
+% Here, the above inequalities hold for any precoder vector \(\boldsymbol{p}\), channel vector \(\hat{\boldsymbol{h}}\), and the channel error bound \(\epsilon\).
+Therefore, we can find the worst-case SINR of the common message as
 \begin{align}
- \bar{R}^{c}_{t,k} =& \log_2\left(1 + \frac{\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{c}_{t} \right|^2}{\hat{\Xi}^{c}_{t,k} +  \sum_{i=1}^{K}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2}\right), \label{eq:lowerBoundRc}
+%  \bar{\gamma}^{c}_{t,k} =& \frac{\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{c}_{t} \right|^2}{\hat{\Xi}^{c}_{t,k} +  \sum_{i=1}^{K}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2}, \label{eq:lowerBoundRc}
+  \bar{\gamma}^{c}_{t,k} =& \left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{c}_{t} \right|^2\Big/\left[\hat{\Xi}^{c}_{t,k} +  \sum_{i=1}^{K}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2\right], \label{eq:lowerBoundRc}
 \end{align}
-where \(\hat{\Xi}^{c}_{t,k}\) is defined as \(\hat{\Xi}^{c}_{t,k} = \epsilon_{c,t,k}^2\left\Vert \boldsymbol{p}_t^{r} \right\Vert^2 + \epsilon_{c,t,k}^2\left\Vert  \boldsymbol{p}_t^{c} \right\Vert^2 + \sum_{i=1}^{K} \delta_{c,t,k} \left\Vert \boldsymbol{p}^{p}_{t,i} \right\Vert^2\), and \(\delta_{c,t,k} = \epsilon_{c,t,k}^2 + 2\epsilon_{c,t,k}\left\Vert \hat{\boldsymbol{h}}_{t,k} \right\Vert\). Similarly, the achievable rate of the private message can be lower-bounded as
+where \(\hat{\Xi}^{c}_{t,k}\) is defined as \(\hat{\Xi}^{c}_{t,k} = \epsilon_{c,t,k}^2\left\Vert \boldsymbol{p}_t^{r} \right\Vert^2 + \epsilon_{c,t,k}^2\left\Vert  \boldsymbol{p}_t^{c} \right\Vert^2 + \sum_{i=1}^{K} \delta_{c,t,k} \left\Vert \boldsymbol{p}^{p}_{t,i} \right\Vert^2\), and \(\delta_{c,t,k} = \epsilon_{c,t,k}^2 + 2\epsilon_{c,t,k}\left\Vert \hat{\boldsymbol{h}}_{t,k} \right\Vert\). Similarly, the worst case SINR of the private message can be expressed as
 \begin{align}
- \bar{R}^{p}_{t,k} = \log_2\left(1 + \frac{\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,k} \right|^2}{\hat{\Xi}^{p}_{t,k} +  \sum_{i\neq j}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2}\right), \label{eq:lowerBoundRp}
+%  \bar{\gamma}^{p}_{t,k} = \frac{\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,k} \right|^2}{\hat{\Xi}^{p}_{t,k} +  \sum_{i\neq j}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2}, \label{eq:lowerBoundRp}
+ \bar{\gamma}^{p}_{t,k} = \left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,k} \right|^2\Big/\left[\hat{\Xi}^{p}_{t,k} +  \sum_{i\neq j}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2\right], \label{eq:lowerBoundRp}
 \end{align}
 where \(\hat{\Xi}^{p}_{t,k}\) is defined as \(\hat{\Xi}^{p}_{t,k} = \epsilon_{c,t,k}^2\left\Vert \boldsymbol{p}_t^{r} \right\Vert^2 + \epsilon_{c,t,k}^2\left\Vert  \boldsymbol{p}_t^{c} \right\Vert^2 + \epsilon_{c,t,k}^2\left\Vert  \boldsymbol{p}^{p}_{t,i} \right\Vert^2 + \sum_{i\neq k}\delta_{c,t,k}\left\Vert \boldsymbol{p}^{p}_{t,i} \right\Vert^2\). 
+Then, the worst case rate (WCR) of the common message and private message can be expressed as \(\bar{R}^{c}_{t} = \min_{k} \log_2(1 + \bar{\gamma}^{c}_{t,k})\) and \(\bar{R}^{p}_{t,k} = \log_2(1 + \bar{\gamma}^{p}_{t,k})\), respectively.
 
 As for sensing SINR \(\gamma_{t}^{r}\), we can also find a lower bound in the worst case as
 \begin{align}
- \bar{\gamma}_{t}^{r} = &\frac{\left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{r}_{t} \right|^2-\alpha_t\left\Vert \boldsymbol{p}^{r}_{t}\right\Vert^2}
+ \bar{\gamma}_{t}^{r} = &\frac{\left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{r}_{t} \right|^2-\alpha_t\left\Vert \boldsymbol{p}^{r}_{t}\right\Vert^2}
  {\hat{\Xi}^{r}_{t} + \left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{c}_{t}\right|^2 + \sum_{i=1}^{K}\left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2},\label{eq:lowerBoundSensingSINR}
 \end{align}    
 where \(\alpha_t\) and \(\hat{\Xi}^{r}_{t}\) are defined as \(\alpha_t =2\epsilon_{r,t}\left\Vert \hat{\boldsymbol{g}}_{t} \right\Vert - \epsilon_{r,t}^2 \), and \(\hat{\Xi}^{r}_{t} = \delta_{r,t}^2\left\Vert \boldsymbol{p}_t^{c} \right\Vert^2 + \delta_{r,t}^2\sum_{i=1}^{K}\left\Vert \boldsymbol{p}^{p}_{t,i} \right\Vert^2\). And \(\delta_{r,t}\) is defined as \(\delta_{r,t} = \epsilon_{r,t}^2 + 2\epsilon_{r,t}\left\Vert \hat{\boldsymbol{g}}_{t} \right\Vert\).
-Therefore, by substituting \eqref{eq:lowerBoundRc}, \eqref{eq:lowerBoundRp}, and \eqref{eq:lowerBoundSensingSINR} into P1, we can eliminate the impact of the channel uncertainty on the problem as
+Therefore, by substituting \eqref{eq:lowerBoundRc}, \eqref{eq:lowerBoundRp}, and \eqref{eq:lowerBoundSensingSINR} into P1, we can formulate the robust beamforming problem as
 \begin{subequations}
 \begin{align}
  (\text{P1.2})\quad&\mathop{\max}_{{\substack{\boldsymbol{p}^{r}_{t},\boldsymbol{p}^{c}_{t},\\
- \boldsymbol{p}^{p}_{t,k},\left\{C_{t,k}\right\}}}}\bar{\gamma}_t^{r}, \forall t,\label{eq:gammaR2}\\
- \text{s.t.}\quad&\eqref{eq:powerConstraint},\notag\\
- \quad&\bar{R}^{p}_{t,k} + C_{t,k} \geq R_{\min}, \forall k,t,\label{eq:rateConstraint2}\\
+ \boldsymbol{p}^{p}_{t,k},\left\{C_{t,k}\right\}}}}\bar{\gamma}_t^{r}, \forall t,\label{eq:gammaR2}\\
+ \text{s.t.}\quad&\eqref{eq:powerConstraint},\notag\\
+ \quad&\bar{R}^{p}_{t,k} + C_{t,k} \geq R_{\min}, \forall k,t,\label{eq:rateConstraint2}\\
     & \sum_{k=1}^{K} C_{t,k} \leq \bar{R}^{c}_{t}, \forall t. \label{eq:splittedRateConstraint2}
 \end{align}
 \end{subequations}
 
-Then, quadratic transformation \cite{shenFractional2018a} can be adopted to tackle the non-convexity of \eqref{eq:gammaR2}-\eqref{eq:splittedRateConstraint2}, which results from the fractional form. We define the auxilary variables \(\boldsymbol{y}_{r,t},y_{c,t,k},y_{p,t,k}\) for quadratic transform. Thus, we can reformulate the SINR of sensing and communication, and the achievable rate of common and private messages as
+Then, quadratic transformation \cite{shenFractional2018a} can be adopted to tackle the non-convexity of \eqref{eq:gammaR2}-\eqref{eq:splittedRateConstraint2}, which results from the fractional form. We define the auxilary variables \(\boldsymbol{y}_{r,t},y_{c,t,k},y_{p,t,k}\) for quadratic transform. Thus, we can reformulate the worst case sensing SINR as \(\tilde{\gamma}_{t}^{r}\) and the achievable rate of common and private messages as \(\tilde{R}^{c}_{t}=\log_2(1+\tilde{\gamma}_{t}^{c}),\tilde{R}^{p}_{t,k} = \log_2(1+\tilde{\gamma}_{t,k}^{p})\), where \(\tilde{\gamma}_{t}^{r},\tilde{\gamma}_{t,k}^{c},\tilde{\gamma}_{t,k}^{p}\) are defiend as
 \begin{subequations}
 \begin{align}
-    &\tilde{\gamma}_{t}^{r}=2\Re\left\{\boldsymbol{y}_{r,t}^H\mathbf{A}\boldsymbol{p}^{r}_{t}\right\}\notag\\
-    &\qquad-\left\Vert \boldsymbol{y}_{r,t}\right\Vert^2 \left[\hat{\Xi}^{r}_{t} + \left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{c}_{t}\right|^2 + \sum_{i=1}^{K}\left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2\right],\\
+    &\tilde{\gamma}_{t}^{r}=2\Re\left\{\boldsymbol{y}_{r,t}^H\mathbf{A}_t\boldsymbol{p}^{r}_{t}\right\}
+% \notag\\
+%     &\qquad-\left\Vert \boldsymbol{y}_{r,t}\right\Vert^2 \left[\hat{\Xi}^{r}_{t} + \left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{c}_{t}\right|^2 + \sum_{i=1}^{K}\left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2\right],\\
+-\left\Vert \boldsymbol{y}_{r,t}\right\Vert^2 D^{r}_{t},\\
     %
-    &\tilde{\gamma}_{t,k}^{c}=2\Re\left\{ y_{c,t,k}^{*}\hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{c}_{t} \right\}\notag\\ 
-    &\qquad- \left\vert y_{c,t,k} \right\vert^2\left[ \hat{\Xi}^{c}_{t,k} +  \sum_{i=1}^{K}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2 \right],\\
+    &\tilde{\gamma}_{t,k}^{c}=2\Re\left\{ y_{c,t,k}^{*}\hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{c}_{t} \right\}
+% \notag\\ 
+%     &\qquad- \left\vert y_{c,t,k} \right\vert^2\left[ \hat{\Xi}^{c}_{t,k} +  \sum_{i=1}^{K}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2 \right],\\
+- \left\vert y_{c,t,k} \right\vert^2 D^{c}_{t,k},\\
     %
-    &\tilde{\gamma}_{t,k}^{p}=2\Re\left\{ y_{p,t,k}^{*}\hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,k} \right\}\notag\\ 
-    &\qquad- \left\vert y_{c,t,k} \right\vert^2\left[ \hat{\Xi}^{p}_{t,k} +  \sum_{i\neq j}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2 \right],\\
-    &\tilde{R}^{p}_{t,k} = \log_2(1+\tilde{\gamma}_{t,k}^{p}),\\
-    &\tilde{R}^{c}_{t} =  \min_{k}\log_2(1+\tilde{\gamma}_{t,k}^{c}),
+    &\tilde{\gamma}_{t,k}^{p}=2\Re\left\{ y_{p,t,k}^{*}\hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,k} \right\}
+% \notag\\ 
+%     &\qquad- \left\vert y_{c,t,k} \right\vert^2\left[ \hat{\Xi}^{p}_{t,k} +  \sum_{i\neq j}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2 \right],
+- \left\vert y_{p,t,k} \right\vert^2 D^{p}_{t,k},
 \end{align}
 \end{subequations}
-where \(\mathbf{A}_t\) is defined as \(\mathbf{A}_t = \left(\hat{\boldsymbol{g}}_{t}\hat{\boldsymbol{g}}^{H}_{t}-\alpha_t\mathbf{I}\right)^{\frac{1}{2}}\). Thus, the problem can be further reformulated as an iterative optimization problem, which alternatively update the original optimization variables and auxilary variables as follows
+where \(\mathbf{A}_t\) is defined as \(\mathbf{A}_t = \left(\hat{\boldsymbol{g}}_{t}\hat{\boldsymbol{g}}^{H}_{t}-\alpha_t\mathbf{I}\right)^{\frac{1}{2}}\), and \(D^{r}_{t},D^{c}_{t,k},D^{p}_{t,k}\) denote the denominators of \(\bar{\gamma}^{r}_{t},\bar{\gamma}^{c}_{t,k},\bar{\gamma}^{p}_{t,k}\), which are in the quadratic forms of the precoder vectors. Thus, the problem can be further reformulated as an iterative optimization problem, which alternatively updates the original optimization variables and auxilary variables as follows.
 \begin{subequations}
 \begin{align}
  (\text{P1.3})\quad&\mathop{\max}_{{\substack{\boldsymbol{p}^{r}_{t},\boldsymbol{p}^{c}_{t},\\
- \boldsymbol{p}^{p}_{t,k},\left\{C_{t,k}\right\}}}}\tilde{\gamma}_{t}^{r}, \forall t,\label{eq:gammaRQT}\\
- \text{s.t.}\quad&\eqref{eq:powerConstraint},\notag\\
- \quad&\tilde{R}^{p}_{t,k} + C_{t,k} \geq R_{\min}, \forall k,t,\label{eq:rateConstraintQT}\\
+ \boldsymbol{p}^{p}_{t,k},\left\{C_{t,k}\right\}}}}\tilde{\gamma}_{t}^{r}, \forall t,\label{eq:gammaRQT}\\
+ \text{s.t.}\quad&\eqref{eq:powerConstraint},\notag\\
+ \quad&\tilde{R}^{p}_{t,k} + C_{t,k} \geq R_{\min}, \forall k,t,\label{eq:rateConstraintQT}\\
     & \sum_{k=1}^{K} C_{t,k} \leq \tilde{R}^{c}_{t}, \forall t. \label{eq:splittedRateConstraintQT}
 \end{align}
 \end{subequations}
-Here, the problem P1.3 is convex, which can be solved by a standard convex optimization tool, i.e., CVX \cite{cvx}. Then, we can update the auxilary variables via \eqref{eq:yr}-\eqref{eq:yp}. 
+Here, the problem P1.3 is convex, which can be solved by a standard convex optimization tool, i.e., CVX \cite{cvx}. Then, we can update the auxiliary variables via \eqref{eq:yr}-\eqref{eq:yp}, which can be easily tackled by setting the first-order derivative to zero. 
 \begin{subequations}
 \begin{align}
-    &\boldsymbol{y}_{r,t}^{\star} = \left(\hat{\Xi}^{r}_{t} + \left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{c}_{t}\right|^2 + \sum_{i=1}^{K}\left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2\right)^{-1}\mathbf{A}_t\boldsymbol{p}^{r}_{t},\label{eq:yr}\\
-    &y_{c,t,k}^{\star} = \left( \hat{\Xi}^{c}_{t,k} +  \sum_{i=1}^{K}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2 \right)^{-1}\hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{c}_{t},\label{eq:yc}\\
-    &y_{p,t,k}^{\star} = \left( \hat{\Xi}^{p}_{t,k} +  \sum_{i\neq j}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2 \right)^{-1}\hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,k}.\label{eq:yp}
+%     &\boldsymbol{y}_{r,t} = \left(\hat{\Xi}^{r}_{t} + \left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{c}_{t}\right|^2 + \sum_{i=1}^{K}\left| \hat{\boldsymbol{g}}^{H}_{t}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2\right)^{-1}\mathbf{A}_t\boldsymbol{p}^{r}_{t},\label{eq:yr}\\
+%     &y_{c,t,k}= \left( \hat{\Xi}^{c}_{t,k} +  \sum_{i=1}^{K}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2 \right)^{-1}\hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{c}_{t},\label{eq:yc}\\
+%     &y_{p,t,k} = \left( \hat{\Xi}^{p}_{t,k} +  \sum_{i\neq j}\left| \hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,i}\right|^2 + \sigma^2 \right)^{-1}\hat{\boldsymbol{h}}^{H}_{t,k}\boldsymbol{p}^{p}_{t,k}.\label{eq:yp}
+    &\boldsymbol{y}_{r,t} = \arg\max_{\boldsymbol{y}_{r,t}} \tilde{\gamma}_{t}^{r},\label{eq:yr}\\
+    &y_{c,t,k}= \arg\max_{y_{c,t,k}} \tilde{\gamma}_{t,k}^{c},\label{eq:yc}\\
+    &y_{p,t,k} = \arg\max_{y_{p,t,k}} \tilde{\gamma}_{t,k}^{p}.\label{eq:yp}
 \end{align}
 \end{subequations}
 \subsection{AAV Deployment Optimization}
 With the given precoder vectors, we can then optimize the AAV deployment. We can use the lower bounds derived in the last subsection to formulate a robust optimization problem as 
 \begin{align}
  (\text{P2})\quad&\min_{\left\{\boldsymbol{x}^{U}_{t}\right\},\left\{C_{t,k}\right\}} \bar{{\Phi}}(\left\{\boldsymbol{x}^{U}_{t}\right\})\label{eq:objP2}\\
- \text{s.t.}\quad& \eqref{eq:rateConstraint2}, \eqref{eq:splittedRateConstraint2}, \text{and } \eqref{eq:AAVConstraint}\mbox{-}\eqref{eq:AAVDistanceConstraint}.\notag
+ \text{s.t.}\quad& \eqref{eq:rateConstraint2}, \eqref{eq:splittedRateConstraint2}, \text{and } \eqref{eq:AAVConstraint}\mbox{-}\eqref{eq:AAVDistanceConstraint}.\notag
 \end{align}
 Here, the objective function is replaced by worst case CRB (WCCRB) \(\bar{{\Phi}}(\left\{\boldsymbol{x}^{U}_{t}\right\})\), which is defined as
 \begin{align}
- \bar{{\Phi}}(\left\{\boldsymbol{x}^{U}_{t}\right\}) = \text{tr}\left[\left(2B\sum_{t=1}^{T} \bar{\gamma}_{k}^{r}\boldsymbol{f}_{t}\boldsymbol{f}^{T}_{t}\right)^{-1}\right].
+ \bar{{\Phi}}(\left\{\boldsymbol{x}^{U}_{t}\right\}) = \text{tr}\left[\left(2B\sum_{t=1}^{T} \bar{\gamma}_{k}^{r}\boldsymbol{f}_{t}\boldsymbol{f}^{T}_{t}\right)^{-1}\right].
 \end{align}
 
 Since the AAV deployment will affect the channel vectors, the objective function \eqref{eq:objP2} and constraints \eqref{eq:AAVDistanceConstraint}, \eqref{eq:rateConstraint2}-\eqref{eq:splittedRateConstraint2} are highly non-convex. We adopt successive convex approximation (SCA) technology to substitute the original non-convex functions with their first-order Taylor expansions. 
 We define \((\cdot)^{[q]}\) as the value of the variable in the \(q\)-th iteration. Thus, the first-order Taylor expansions can be expressed as
 \begin{subequations}
 \begin{align}
-    &\hat{\Phi} = \bar{{\Phi}}^{(q-1)} + \sum_{t}\frac{\partial \bar{{\Phi}}}{\partial \boldsymbol{x}^{U}_{t}}\left(\boldsymbol{x}^{U}_{t}-\boldsymbol{x}^{U,(q-1)}_{t}\right),\\
-    &\hat{R}^{p}_{t,k} = \bar{R}^{p,(q-1)}_{t,k}+\sum_t \frac{\partial \bar{R}^{p}_{t,k}}{\partial \boldsymbol{x}^{U}_{t}}\left(\boldsymbol{x}^{U}_{t}-\boldsymbol{x}^{U,(q-1)}_{t}\right),\\
-    &\hat{R}^{c}_{t,k} =\bar{R}^{c,(q-1)}_{t,k}+\sum_t \frac{\partial \bar{R}^{c}_{t,k}}{\partial \boldsymbol{x}^{U}_{t}}\left(\boldsymbol{x}^{U}_{t}-\boldsymbol{x}^{U,(q-1)}_{t}\right).
+    &\hat{\Phi}^{(q)} = \bar{{\Phi}}^{(q-1)} + \sum_{t}\frac{\partial \bar{{\Phi}}}{\partial \boldsymbol{x}^{U}_{t}}\left(\boldsymbol{x}^{U}_{t}-\boldsymbol{x}^{U,(q-1)}_{t}\right),\\
+    &\hat{R}^{p,(q)}_{t,k} = \bar{R}^{p,(q-1)}_{t,k}+\sum_t \frac{\partial \bar{R}^{p}_{t,k}}{\partial \boldsymbol{x}^{U}_{t}}\left(\boldsymbol{x}^{U}_{t}-\boldsymbol{x}^{U,(q-1)}_{t}\right),\\
+    &\hat{R}^{c,(q)}_{t,k} =\bar{R}^{c,(q-1)}_{t,k}+\sum_t \frac{\partial \bar{R}^{c}_{t,k}}{\partial \boldsymbol{x}^{U}_{t}}\left(\boldsymbol{x}^{U}_{t}-\boldsymbol{x}^{U,(q-1)}_{t}\right).
 \end{align}
 \end{subequations}
 Here, the derivation of the partial derivative can be referred to \cite{lyuJoint2023}, which is omitted due to the page limit. Therefore, the problem in the \(q\)-th iteration can be reformulated as
 \begin{subequations}
 \begin{align}
- (\text{P2.1})\quad&\min_{\left\{\boldsymbol{x}^{U}_{t}\right\},\left\{C_{t,k}\right\}} \hat{\Phi}\label{eq:objP2}\\
- \text{s.t.}\quad& \hat{R}^{p,(q-1)}_{t,k} + C_{t,k} \geq R_{\min}, \forall t,k, \label{eq:rateConstraint2.1}
+ (\text{P2.1})\quad&\min_{\left\{\boldsymbol{x}^{U}_{t}\right\},\left\{C_{t,k}\right\}} \hat{\Phi}^{(q)}\label{eq:objP2}\\
+ \text{s.t.}\quad& \hat{R}^{p,(q)}_{t,k} + C_{t,k} \geq R_{\min}, \forall t,k, \label{eq:rateConstraint2.1}
     \\
-    & \sum_{k=1}^{K} C_{t,k} \leq \min_{k}\hat{R}^{c}_{t,k}, \forall t. \label{eq:splittedRateConstraint2.1}\\
+    & \sum_{k=1}^{K} C_{t,k} \leq \min_{k}\hat{R}^{c,(q)}_{t,k}, \forall t. \label{eq:splittedRateConstraint2.1}\\
     & 2(\boldsymbol{x}^{U,(q-1)}_{t} - \boldsymbol{x}^{U,(q-1)}_{i})^T(\boldsymbol{x}^{U}_{t} - \boldsymbol{x}^{U}_{i})\notag\\
     & - \left\Vert \boldsymbol{x}^{U,(q-1)}_{t} - \boldsymbol{x}^{U,(q-1)}_{i}\right\Vert^2 \geq d_{\min}^2,\label{eq:relaxUAVdistance}
     \\
@@ -322,17 +350,17 @@ Here, the left-hand side term of \eqref{eq:relaxUAVdistance} is a lower bound of
     \label{fig:boundAntennaNum}
   \end{minipage}
 \end{figure*}
-\subsection{Overall Optimization Algorithm}
-Given the initial value of precoders, we can calculate the initial value of auxiliary variables \(\boldsymbol{y}_{r,t},y_{c,t,k},y_{p,t,k}\) via \eqref{eq:gammaR2}-\eqref{eq:splittedRateConstraint2}. Then with given auxilary variables, we can obtain the optimized precoder vectors \(\left\{\boldsymbol{p}^{r}_{t}\right\},\left\{\boldsymbol{p}^{c}_{t}\right\},  \left\{\boldsymbol{p}^{p}_{t,k}\right\}\) via solving P1.3. Then, with given precoder vectors, we can obtain the optimized UAV deployment \(\left\{\boldsymbol{x}^{U}_{t}\right\}\) via solving P2.1. Repeat the optimization of the three groups of variables until convergence or reaching the maximum iteration number. 
+% \subsection{Overall Optimization Algorithm}
+% Given the initial value of precoders, we can calculate the initial value of auxiliary variables \(\boldsymbol{y}_{r,t},y_{c,t,k},y_{p,t,k}\) via \eqref{eq:gammaR2}-\eqref{eq:splittedRateConstraint2}. Then with given auxilary variables, we can obtain the optimized precoder vectors \(\left\{\boldsymbol{p}^{r}_{t}\right\},\left\{\boldsymbol{p}^{c}_{t}\right\},  \left\{\boldsymbol{p}^{p}_{t,k}\right\}\) via solving P1.3. Then, with given precoder vectors, we can obtain the optimized UAV deployment \(\left\{\boldsymbol{x}^{U}_{t}\right\}\) via solving P2.1. Repeat the optimization for the three groups of variables until convergence or the maximum iteration number is reached. 
 
 \section{Simulation Results}
-Numerical simulation experiments are conducted to validate the effectiveness of our proposed method. In the simulation, the users are distributed in the area of \(400\;\text{m}\times 400\;\text{m}\). We set the number of AAVs as \(T=4\), the number of UEs in each cluster as \(K=4\), and the number of antennas of each AAV as \(N_t=6\). 
-The carrier frequency is set as \(f_c=5.8\;\text{GHz}\), and the bandwidth is set as \(B=40\;\text{MHz}\). We set the noise power and the maximum transmit power as \(\sigma^2=-110\;\text{dBm}\) and \(P_{\max}=33\;\text{dBm}\). The maximum channel estimation error is set as \(\epsilon_{c,t,k}=0.1\Vert \hat{\boldsymbol{h}}_{t,k} \Vert\) and \(\epsilon_{r,t}=0.1\Vert \hat{\boldsymbol{g}}_{t} \Vert\). The above simulation parameters are set according to \cite{huCollaborative2025,mengUAVEnabled2023,lyuDualRobust2024}.
+In the simulation, the users are distributed in the area of \(400\;\text{m}\times 400\;\text{m}\). We set the number of AAVs as \(T=4\), the number of UEs in each cluster as \(K=4\), and the number of antennas of each AAV as \(N_t=6\). 
+The carrier frequency is set as \(f_c=5.8\;\text{GHz}\), and the bandwidth is set as \(B=40\;\text{MHz}\). We set the noise power and the maximum transmit power as \(\sigma^2=-110\;\text{dBm}\) and \(P_{\max}=33\;\text{dBm}\). The maximum channel estimation error is set as \(\epsilon_{c,t,k}=0.1\Vert \hat{\boldsymbol{h}}_{t,k} \Vert\) and \(\epsilon_{r,t}=0.1\Vert \hat{\boldsymbol{g}}_{t} \Vert\). The above simulation parameter settings can be found in \cite{huCollaborative2025,mengUAVEnabled2023,lyuDualRobust2024}.
 
-In Fig. \ref{fig:Conv}, the convergence behaviors of the proposed solution under different rate constraints are presented (Sensing only indicates the rate constraint is set as \(0\)). It can be observed that the proposed method can converge within 10 iterations, and the convergence speed is slower with the larger rate constraint. 
+In Fig. \ref{fig:Conv}, the convergence behaviors of the proposed solution under different rate constraints are presented (Sensing only indicates the rate constraint is set as \(0\)). It can be observed that the proposed method converges within 10 iterations, and the convergence speed is slower with a larger rate constraint. 
 
 In Fig. \ref{fig:boundComparison}, we present the WCCRB performance of our proposed method under different WCR constraints, together with some baseline methods, which illustrate the inherent trade-off between sensing and communication performance. The baselines include the proposed scheme with space division multiple access (SDMA) and time division multiple access (TDMA) for communication, time division communication and sensing with RSMA (sensing duration occupies \(30\%\) of the whole period), a non-robust scheme with RSMA, and robust beamforming with fixed AAV deployment and RSMA.
-It can be observed that RSMA can enhance communication performance, thereby improving sensing performance under the rate constraint. Besides, the proposed three-layer sensing and communication waveform design outperforms the time division communication and sensing scheme, which indicates that the proposed three-layer waveform design is more efficient for the integration of sensing. Moreover, without a robust design, the worst-case communication performance will severely degrade. The AAV deployment optimization can further improve the overall performance.
+RSMA can enhance communication performance, thereby improving sensing performance under the rate constraint. Besides, the proposed three-layer sensing and communication waveform design outperforms the time-division communication and sensing scheme, indicating that the proposed three-layer waveform design is more efficient for integrating sensing. Moreover, without a robust design, the worst-case communication performance will severely degrade. The AAV deployment optimization can further improve the overall performance.
 
 In Fig. \ref{fig:boundAntennaNum}, we present the worst-case CRB-rate bound under different antenna numbers of each AAV. It can be observed that overall performance improves with increasing the number of antennas, since more antennas provide higher array gain and better separation of communication users from different directions, thereby mitigating multi-user interference. 
 \section{Conclusion}

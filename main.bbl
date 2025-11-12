@@ -93,8 +93,8 @@
     \field{number}{5}
     \field{pages}{62\bibrangedash 67}
     \field{shorttitle}{{{UAV Meets Integrated Sensing}} and {{Communication}}}
-    \field{title}{{{UAV Meets Integrated Sensing}} and {{Communication}}:
-  {{Challenges}} and {{Future Directions}}}
+    \field{title}{{{UAV}} Meets Integrated Sensing and Communication:
+  Challenges and Future Directions}
     \field{volume}{61}
     \field{journaltitle}{IEEE Commun. Mag.}
     \field{month}{05}
@@ -154,8 +154,8 @@
     \field{pages}{97\bibrangedash 104}
     \field{shorttitle}{{{UAV-Enabled Integrated Sensing}} and
   {{Communication}}}
-    \field{title}{{{UAV-Enabled Integrated Sensing}} and {{Communication}}:
-  {{Opportunities}} and {{Challenges}}}
+    \field{title}{{{UAV}}-Enabled Integrated Sensing and Communication:
+  Opportunities and Challenges}
     \field{volume}{31}
     \field{journaltitle}{IEEE Wireless Commun.}
     \field{month}{04}
@@ -211,9 +211,11 @@
     \strng{fullhash}{HYZXMZLWTLQFBZ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{pages}{1\bibrangedash 1}
-    \field{title}{Collaborative {{Positioning Optimization}} for {{Multiple
-  Moving Users}} in {{UAV-Enabled ISAC}}}
+    \field{number}{5}
+    \field{pages}{3016\bibrangedash 3030}
+    \field{title}{Collaborative Positioning Optimization for Multiple Moving
+  Users in {{UAV}}-Enabled {{ISAC}}}
+    \field{volume}{11}
     \field{journaltitle}{IEEE Trans. Cognit. Commun. Networking}
     \field{year}{2025}
   \endentry
@@ -249,13 +251,10 @@
     \strng{fullhash}{CLQXCYZN1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{number}{3}
-    \field{pages}{1323\bibrangedash 1335}
+    \field{pages}{1\bibrangedash 1}
     \field{title}{Joint {{Waveform}} and {{Clustering Design}} for
-  {{Coordinated Multi-Point DFRC Systems}}}
-    \field{volume}{71}
+  {{Coordinated Multi-point DFRC Systems}}}
     \field{journaltitle}{IEEE Trans. Commun.}
-    \field{month}{03}
     \field{year}{2023}
   \endentry
 
@@ -292,9 +291,9 @@
     \field{labeltitlesource}{shorttitle}
     \field{number}{1}
     \field{pages}{186\bibrangedash 200}
-    \field{shorttitle}{{{UAV-Assisted Communications}} in {{SAGIN-ISAC}}}
-    \field{title}{{{UAV-Assisted Communications}} in {{SAGIN-ISAC}}: {{Mobile
-  User Tracking}} and {{Robust Beamforming}}}
+    \field{shorttitle}{UAV-Assisted Communications in SAGIN-ISAC}
+    \field{title}{{{UAV}}-Assisted Communications in {{SAGIN-ISAC}}: Mobile
+  User Tracking and Robust Beamforming}
     \field{volume}{43}
     \field{journaltitle}{IEEE J. Sel. Areas Commun.}
     \field{month}{01}
@@ -340,8 +339,8 @@
     \field{labeltitlesource}{title}
     \field{number}{6}
     \field{pages}{1332\bibrangedash 1347}
-    \field{title}{Rate-{{Splitting Multiple Access}} for {{Multi-Antenna Joint
-  Radar}} and {{Communications}}}
+    \field{title}{Rate-Splitting Multiple Access for Multi-Antenna Joint Radar
+  and Communications}
     \field{volume}{15}
     \field{journaltitle}{IEEE J. Sel. Top. Signal Process.}
     \field{month}{11}
@@ -403,10 +402,9 @@
     \field{pages}{1\bibrangedash 9}
     \field{shorttitle}{{{UAV-Enabled Integrated Sensing}} and
   {{Communication}}}
-    \field{title}{{{UAV-Enabled Integrated Sensing}} and {{Communication}}:
-  {{Opportunities}} and {{Challenges}}}
+    \field{title}{{{UAV}}-Enabled Integrated Sensing and Communication:
+  Opportunities and Challenges}
     \field{journaltitle}{IEEE Wireless Commun.}
-    \field{eprinttype}{arXiv}
     \field{year}{2023}
   \endentry
 
@@ -443,8 +441,8 @@
     \field{labeltitlesource}{shorttitle}
     \field{pages}{1\bibrangedash 1}
     \field{shorttitle}{{{ISAC}} from the {{Sky}}}
-    \field{title}{{{ISAC}} from the {{Sky}}: {{UAV Trajectory Design}} for
-  {{Joint Communication}} and {{Target Localization}}}
+    \field{title}{{{ISAC}} from the Sky: {{UAV}} Trajectory Design for Joint
+  Communication and Target Localization}
     \field{journaltitle}{IEEE Trans. Wireless Commun.}
     \field{year}{2024}
   \endentry
@@ -500,12 +498,11 @@
     \field{labeltitlesource}{shorttitle}
     \field{number}{11}
     \field{pages}{3124\bibrangedash 3128}
-    \field{shorttitle}{Dual-{{Robust Integrated Sensing}} and
-  {{Communication}}}
-    \field{title}{Dual-{{Robust Integrated Sensing}} and {{Communication}}:
-  {{Beamforming Under CSI Imperfection}} and {{Location Uncertainty}}}
+    \field{shorttitle}{Dual-Robust Integrated Sensing and Communication}
+    \field{title}{Dual-Robust Integrated Sensing and Communication: Beamforming
+  Under {{CSI}} Imperfection and Location Uncertainty}
     \field{volume}{13}
-    \field{journaltitle}{IEEE Wireless Communications Letters}
+    \field{journaltitle}{IEEE Wireless Commun. Lett.}
     \field{month}{11}
     \field{year}{2024}
   \endentry
@@ -543,10 +540,10 @@
     \field{labeltitlesource}{title}
     \field{number}{10}
     \field{pages}{13841\bibrangedash 13855}
-    \field{title}{Multi-{{Antenna Covert Communication Assisted}} by {{UAV-RIS
-  With Imperfect CSI}}}
+    \field{title}{Multi-Antenna Covert Communication Assisted by {{UAV-RIS}}
+  With Imperfect {{CSI}}}
     \field{volume}{23}
-    \field{journaltitle}{IEEE Transactions on Wireless Communications}
+    \field{journaltitle}{IEEE Trans. Wireless Commun.}
     \field{month}{10}
     \field{year}{2024}
   \endentry
@@ -602,8 +599,8 @@
     \field{labeltitlesource}{title}
     \field{number}{3}
     \field{pages}{5170\bibrangedash 5174}
-    \field{title}{Resource {{Allocation}} for {{RSMA-Based Symbiotic Radio
-  Systems Under Imperfect SIC}} and {{CSI}}}
+    \field{title}{Resource Allocation for {{RSMA}}-Based Symbiotic Radio
+  Systems Under Imperfect {{SIC}} and {{CSI}}}
     \field{volume}{74}
     \field{journaltitle}{IEEE Trans. Veh. Technol.}
     \field{month}{03}
@@ -631,10 +628,10 @@
     \field{labeltitlesource}{shorttitle}
     \field{number}{1}
     \field{pages}{1355\bibrangedash 1359}
-    \field{shorttitle}{Max-{{Min Fairness Precoder Design}} for
-  {{Rate-Splitting Multiple Access}}}
-    \field{title}{Max-{{Min Fairness Precoder Design}} for {{Rate-Splitting
-  Multiple Access}}: {{Impact}} of {{Imperfect Channel Knowledge}}}
+    \field{shorttitle}{Max-Min Fairness Precoder Design for Rate-Splitting
+  Multiple Access}
+    \field{title}{{{Max-Min}} Fairness Precoder Design for Rate-Splitting
+  Multiple Access: Impact of Imperfect Channel Knowledge}
     \field{volume}{72}
     \field{journaltitle}{IEEE Trans. Veh. Technol.}
     \field{month}{01}
@@ -664,8 +661,8 @@
     \field{pages}{2616\bibrangedash 2630}
     \field{shorttitle}{Fractional {{Programming}} for {{Communication
   Systems}}---{{Part I}}}
-    \field{title}{Fractional {{Programming}} for {{Communication
-  Systems}}---{{Part I}}: {{Power Control}} and {{Beamforming}}}
+    \field{title}{Fractional Programming for Communication Systems---{{Part
+  I}}: Power Control and Beamforming}
     \field{volume}{66}
     \field{journaltitle}{IEEE Trans. Signal Process.}
     \field{month}{05}
@@ -674,18 +671,16 @@
 
   \entry{cvx}{misc}{}
     \name{author}{1}{}{%
-      {{hash=CRI}{%
-         family={CVX\bibnamedelima Research},
-         familyi={C\bibinitperiod\bibinitdelim R\bibinitperiod},
-         given={Inc.},
-         giveni={I\bibinitperiod},
+      {{hash=C}{%
+         family={{CVX Research, Inc.}},
+         familyi={C\bibinitperiod},
       }}%
     }
-    \strng{namehash}{CRI1}
-    \strng{fullhash}{CRI1}
+    \strng{namehash}{C1}
+    \strng{fullhash}{C1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{howpublished}{\url{http://cvxr.com/cvx}}
+    \field{howpublished}{\url{https://cvxr.com/cvx}}
     \field{title}{{CVX}: Matlab Software for Disciplined Convex Programming,
   version 2.0}
     \field{month}{08}
@@ -719,8 +714,8 @@
     \field{labeltitlesource}{title}
     \field{number}{4}
     \field{pages}{2424\bibrangedash 2440}
-    \field{title}{Joint {{Maneuver}} and {{Beamforming Design}} for
-  {{UAV-Enabled Integrated Sensing}} and {{Communication}}}
+    \field{title}{Joint Maneuver and Beamforming Design for {{UAV}}-Enabled
+  Integrated Sensing and Communication}
     \field{volume}{22}
     \field{journaltitle}{IEEE Trans. Wireless Commun.}
     \field{month}{04}
