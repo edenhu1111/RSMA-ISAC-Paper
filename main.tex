@@ -135,10 +135,9 @@ Thus, the achievable rates of the private and common messages can be expressed a
 \end{subequations}
 
 
-We adopt CRB as the sensing metric. According to \cite{huCollaborative2025}, the positioning CRB is defined as the inverse of the effective Fisher information matrix (FIM), which can be expressed as 
+We adopt CRB as the sensing metric. According to \cite{huCollaborative2025}, the positioning CRB is defined as the inverse of the effective Fisher information matrix (FIM) \(\mathbf{F}\), which can be expressed as 
 \begin{align}
-    &\text{CRB} = \text{tr}(\mathbf{F}^{-1}),\\
-    &\mathbf{F} = 2B\sum_{t=1}^{T} \gamma_{k}^{r}\boldsymbol{f}_{t}\boldsymbol{f}^{T}_{t},
+&\text{CRB} = \text{tr}(\mathbf{F}^{-1}) = \frac{1}{2B}\text{tr}[(\sum_{t=1}^{T} \gamma_{k}^{r}\boldsymbol{f}_{t}\boldsymbol{f}^{T}_{t})^{-1}],
 \end{align}
 where \(B\) denotes the effective bandwidth, and \(\boldsymbol{f}_{k}\) is defined as
 \begin{align}
@@ -154,23 +153,34 @@ And the sensing SINR \(\gamma_{t}^{r}\) of the signal from the \(t\)-th AAV can 
 \end{align}
 
 \subsection{Problem Formulation}
-Due to the fact that the path loss of target sensing is always larger than communication, we adopt CRB as our main objective function under the constraint of achievable rate per user. We define the splitted rate of the \(k\)-th user in the \(t\)-th cluster as \(C_{t,k}\). Thus, the optimization problem can be formulated as
+Due to the fact that the path loss of target sensing is always larger than communication, we adopt CRB as our main objective function under maximum transmit power \(P_{\max}\) and the constraints of minimum achievable rate per user \(R_{min}\), which can be formulated as
+\begin{align}
+    &\left\Vert\boldsymbol{p}^{r}_{t}\right\Vert^2 + \left\Vert \boldsymbol{p}^{c}_{t}\right\Vert^2 + \sum_{k=1}^{K} \left\Vert\boldsymbol{p}^{p}_{t,k}\right\Vert^2 \leq P_{\max}, \forall t. \label{eq:powerConstraint}\\
+    &R^{p}_{t,k} + C_{t,k} \geq R_{\min}, \forall k,t,\label{eq:rateConstraint}
+\end{align}
+where \(C_{t,k}\) denotes the splitted rate of the \(k\)-th user in the \(t\)-th cluster as \(C_{t,k}\), which satisfies
+\begin{align}
+     \sum_{k=1}^{K} C_{t,k} \leq R^{c}_{t}, \forall t. \label{eq:splittedRateConstraint}
+\end{align}
+
+Moreover, the UAV deployment should satisfies the constraints of maximum flying distance \(d_{\max}\), fixed flying height \(H\) , and minimum distance between AAVs \(d_{\min}\), which can be expressed as
 \begin{subequations}
+\begin{align}
+& \left\Vert \boldsymbol{x}^{U}_{t} - \boldsymbol{x}^{U,Init}_{t}\right\Vert^2 \leq d^2_{\max}, \forall t, \label{eq:AAVConstraint}\\
+& \boldsymbol{x}^{U}_{t}(3) = H, \forall t, \label{eq:AAVHeightConstraint}\\
+& \left\Vert \boldsymbol{x}^{U}_{t} - \boldsymbol{x}^{U}_{i} \right\Vert^2 \geq d^2_{\min}, \forall t\neq i, \label{eq:AAVDistanceConstraint}
+\end{align}
+\end{subequations}
+
+Thus, the optimization problem can be formulated as
 \begin{align}
  (\text{P0})\quad&\min_{
  \substack{\left\{\boldsymbol{x}^{U}_{t}\right\},\left\{\boldsymbol{p}^{r}_{t}\right\},\left\{\boldsymbol{p}^{c}_{t}\right\},\\
  \left\{\boldsymbol{p}^{p}_{t,k}\right\},\left\{C_{t,k}
  \right\}}
  } \text{tr}(\mathbf{F}^{-1})\label{eq:obj}\\
- \text{s.t.}\quad& R^{p}_{t,k} + C_{t,k} \geq R_{\min}, \forall k,t,\label{eq:rateConstraint}\\
-    & \sum_{k=1}^{K} C_{t,k} \leq R^{c}_{t}, \forall t, \label{eq:splittedRateConstraint}\\
-    & \left\Vert\boldsymbol{p}^{r}_{t}\right\Vert^2 + \left\Vert \boldsymbol{p}^{c}_{t}\right\Vert^2 + \sum_{k=1}^{K} \left\Vert\boldsymbol{p}^{p}_{t,k}\right\Vert^2 \leq P_{\max}, \forall t, \label{eq:powerConstraint}\\
-    & \left\Vert \boldsymbol{x}^{U}_{t} - \boldsymbol{x}^{U,Init}_{t}\right\Vert \leq d_{\max}, \forall t, \label{eq:AAVConstraint}\\
-    & \boldsymbol{x}^{U}_{t}(3) = H, \forall t, \label{eq:AAVHeightConstraint}\\
-    & \left\Vert \boldsymbol{x}^{U}_{t} - \boldsymbol{x}^{U}_{i} \right\Vert^2 \geq d^2_{\min}, \forall t\neq i, \label{eq:AAVDistanceConstraint}
+ &\text{s.t.}\quad \eqref{eq:powerConstraint}-\eqref{eq:splittedRateConstraint}, \eqref{eq:AAVConstraint}-\eqref{eq:AAVDistanceConstraint}.\notag
 \end{align}
-\end{subequations}
-where \eqref{eq:rateConstraint} and \eqref{eq:splittedRateConstraint} denote the minimum rate of per-user constraint and message splitting constraint, \eqref{eq:powerConstraint} denotes the maximum transmit power constraint, \eqref{eq:AAVConstraint}, \eqref{eq:AAVHeightConstraint}, and \eqref{eq:AAVDistanceConstraint} denote the maximum flying distance, fixed flying height, and minimum distance between AAVs, respectively. And \(R_{min}\) is the minimum rate requirement of each UE, \(p_{\max}\) is the maximum transmit power, \(d_{\max}\) is the maximum flying distance, \(H\) is the AAV height, and \(d_{\min}\) is the minimum AAV distance. 
 
 \section{Proposed Robust Solution}
 To tackle the intractable original problem P0, we propose an effective solution based on AO. Specifically, P0 is decomposed into a beamforming and an AAV deployment problem, which can be solved iteratively.
@@ -199,10 +209,10 @@ To address the non-convexity of the objective function, we provide the following
  \frac{\partial \text{tr}(\mathbf{F}^{-1})}{\partial \gamma_{t}^{r}} &= 
 %  -\text{tr}\left(\mathbf{F}^{-1} \frac{\partial \mathbf{F}}{\partial \gamma_{t}^{r}} \mathbf{F}^{-1} \right)\notag\\
 %         &=
- -2B\text{tr}\left(\mathbf{F}^{-1} \boldsymbol{f}_{t}\boldsymbol{f}^{T}_{t} \mathbf{F}^{-1} \right) 
+ -\frac{1}{2B}\text{tr}\left(\mathbf{F}^{-1} \boldsymbol{f}_{t}\boldsymbol{f}^{T}_{t} \mathbf{F}^{-1} \right) 
  \notag\\
 %         &= -2B\boldsymbol{f}^{T}_{t} \mathbf{F}^{-1}\mathbf{F}^{-1} \boldsymbol{f}_{t} \notag\\
-        &\mathop{=}-2B\left\Vert \mathbf{F}^{-1} \boldsymbol{f}_{t} \right\Vert^2 \mathop{<} 0,
+        &\mathop{=}-\frac{1}{2B}\left\Vert \mathbf{F}^{-1} \boldsymbol{f}_{t} \right\Vert^2 \mathop{<} 0,
     \end{align}
 Thus, the CRB is a monotonically decreasing function with respect to \(\gamma_{t}^{r}\). Then the original objective function is equivalent to the four subproblems, completing the proof.
 \end{proof}
